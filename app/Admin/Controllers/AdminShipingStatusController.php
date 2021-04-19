@@ -1,7 +1,7 @@
 <?php
 namespace App\Admin\Controllers;
 
-class AdminShipingStatusController extends \SCart\Core\Admin\Controllers\AdminShipingStatusController
+class AdminShipingStatusController extends \BlackCart\Core\Admin\Controllers\AdminShipingStatusController
 {
     public function __construct()
     {

@@ -1,7 +1,7 @@
 <?php
 namespace App\Admin\Controllers;
 
-class AdminEnvConfigController extends \SCart\Core\Admin\Controllers\AdminEnvConfigController
+class AdminEnvConfigController extends \BlackCart\Core\Admin\Controllers\AdminEnvConfigController
 {
 
     public function __construct()

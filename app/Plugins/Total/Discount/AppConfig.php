@@ -4,9 +4,9 @@ namespace App\Plugins\Total\Discount;
 
 use App\Plugins\Total\Discount\Models\PluginModel;
 use App\Plugins\Total\Discount\Controllers\FrontController;
-use SCart\Core\Admin\Models\AdminConfig;
-use SCart\Core\Admin\Models\AdminMenu;
-use SCart\Core\Front\Models\ShopCurrency;
+use BlackCart\Core\Admin\Models\AdminConfig;
+use BlackCart\Core\Admin\Models\AdminMenu;
+use BlackCart\Core\Front\Models\ShopCurrency;
 use App\Plugins\ConfigDefault;
 class AppConfig extends ConfigDefault
 {

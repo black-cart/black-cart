@@ -1,7 +1,7 @@
 <?php
 namespace App\Admin\Controllers;
 
-class AdminReportController extends \SCart\Core\Admin\Controllers\AdminReportController
+class AdminReportController extends \BlackCart\Core\Admin\Controllers\AdminReportController
 {
 
     public function __construct()

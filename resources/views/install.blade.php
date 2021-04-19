@@ -39,23 +39,23 @@
         <div class="col-md-1"></div>
     <div class="col-md-5 col-sm-8">
         <div style="text-align: center;display: inline;line-height: 80px;">
-            <img alt="Logo-Scart" title="Logo-Scart" src="images/scart-min.png" style="width: 150px; padding: 5px;">
+            <img alt="Logo-Scart" title="Logo-Scart" src="images/Scart-min.png" style="width: 150px; padding: 5px;">
         </div>
 
         <div class="btn-group">
         <button type="button" class="btn btn-default dropdown-toggle usa" data-toggle="dropdown">
             @if ($path_lang == '?lang=vi')
-            <img src="https://s-cart.org/data/language/flag_vn.png" style="height: 25px;">
+            <img src="https://black-cart.org/data/language/flag_vn.png" style="height: 25px;">
             @else
-            <img src="https://s-cart.org/data/language/flag_uk.png" style="height: 25px;">
+            <img src="https://black-cart.org/data/language/flag_uk.png" style="height: 25px;">
             @endif
 
 
         <span class="caret"></span>
       </button>
           <ul class="dropdown-menu" >
-              <li><a href="install.php"><img src="https://s-cart.org/data/language/flag_uk.png" style="height: 25px;"></a></li>
-              <li><a href="install.php?lang=vi"><img src="https://s-cart.org/data/language/flag_vn.png" style="height: 25px;"></a></li>
+              <li><a href="install.php"><img src="https://black-cart.org/data/language/flag_uk.png" style="height: 25px;"></a></li>
+              <li><a href="install.php?lang=vi"><img src="https://black-cart.org/data/language/flag_vn.png" style="height: 25px;"></a></li>
           </ul>
         </div>
         <div style="clear: both;display: block;">
@@ -64,7 +64,7 @@
                 {!! trans('install.info.about_us') !!}<br>
                 {!! trans('install.info.document') !!}<br>
             </p>
-            <p><b>{{ trans('install.info.version') }}</b>: {{ config('s-cart.version') }}</p>
+            <p><b>{{ trans('install.info.version') }}</b>: {{ config('black-cart.version') }}</p>
             <p>{!! trans('install.info.terms') !!}</p>
         </div>
 
@@ -124,7 +124,7 @@
                         <div id="div_database_name" class="form-group info-install required">
                             <label for="database_name"  required class="control-label col-md-4  requiredField"> {{ trans('install.database_name') }} </label>
                             <div class="controls col-md-8 ">
-                                <input class="input-md  textInput form-control" id="database_name"  name="database_name" placeholder="{{ trans('install.database_name') }}" style="margin-bottom: 10px" type="text" value="s-cart" />
+                                <input class="input-md  textInput form-control" id="database_name"  name="database_name" placeholder="{{ trans('install.database_name') }}" style="margin-bottom: 10px" type="text" value="black-cart" />
                             </div>
                         </div>
                         <div id="div_database_user" class="form-group info-install required">

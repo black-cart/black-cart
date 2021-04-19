@@ -2,7 +2,7 @@
 
 namespace App\Admin\Controllers;
 
-class DashboardController extends \SCart\Core\Admin\Controllers\DashboardController
+class DashboardController extends \BlackCart\Core\Admin\Controllers\DashboardController
 {
     public function __construct()
     {

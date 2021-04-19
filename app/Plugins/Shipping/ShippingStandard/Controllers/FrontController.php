@@ -2,7 +2,7 @@
 /**
  * @package    App\Plugins\Shipping\ShippingStandard\Controllers
  * @subpackage FrontController
- * @copyright  Copyright (c) 2020 SCart opensource.
+ * @copyright  Copyright (c) 2020 BlackCart opensource.
  * @author     Lanh le <lanhktc@gmail.com>
  */
 

@@ -2,7 +2,7 @@
 namespace App\Plugins\Cms\Content\Admin;
 
 use App\Http\Controllers\RootAdminController;
-use SCart\Core\Front\Models\ShopLanguage;
+use BlackCart\Core\Front\Models\ShopLanguage;
 use App\Plugins\Cms\Content\Admin\Models\AdminCmsCategory;
 use App\Plugins\Cms\Content\AppConfig;
 

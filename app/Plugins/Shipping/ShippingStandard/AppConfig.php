@@ -3,7 +3,7 @@
 namespace App\Plugins\Shipping\ShippingStandard;
 
 use App\Plugins\Shipping\ShippingStandard\Models\PluginModel;
-use SCart\Core\Admin\Models\AdminConfig;
+use BlackCart\Core\Admin\Models\AdminConfig;
 use App\Plugins\ConfigDefault;
 class AppConfig extends ConfigDefault
 {

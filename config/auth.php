@@ -71,11 +71,11 @@ return [
     'providers' => [
         'users'  => [
             'driver' => 'eloquent',
-            'model'  => SCart\Core\Front\Models\ShopCustomer::class,
+            'model'  => BlackCart\Core\Front\Models\ShopCustomer::class,
         ],
         'admins' => [
             'driver' => 'eloquent',
-            'model'  => SCart\Core\Admin\Models\AdminUser::class,
+            'model'  => BlackCart\Core\Admin\Models\AdminUser::class,
         ],
     ],
 

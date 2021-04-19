@@ -21,7 +21,7 @@
     <meta property="og:description" content="{{ $description??sc_store('description') }}" />
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <!-- css default for item s-cart -->
+    <!-- css default for item black-cart -->
     @include($sc_templatePath.'.common.css')
     <!--//end css defaut -->
 
@@ -39,7 +39,7 @@
     @endforeach
     @endisset
     <!--//Module meta -->
-    <!-- css default for item s-cart -->
+    <!-- css default for item black-cart -->
     <!--//end css defaut -->
 
     <link rel="stylesheet" href="{{ asset($sc_templateFile.'/css/bootstrap.css')}}">
@@ -109,7 +109,7 @@
 
     <script src="{{ asset($sc_templateFile.'/js/core.min.js')}}"></script>
     <script src="{{ asset($sc_templateFile.'/js/script.js')}}"></script>
-    <!-- js default for item s-cart -->
+    <!-- js default for item black-cart -->
     @include($sc_templatePath.'.common.js')
     <!--//end js defaut -->
     @stack('scripts')

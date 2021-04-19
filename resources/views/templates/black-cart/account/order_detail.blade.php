@@ -152,7 +152,7 @@ $layout_page = shop_profile
       </div>
 
       @php
-          $dataTotal = \SCart\Core\Front\Models\ShopOrderTotal::getTotal($order->id)
+          $dataTotal = \BlackCart\Core\Front\Models\ShopOrderTotal::getTotal($order->id)
       @endphp
       <div class="row">
         <div class="col-md-12">

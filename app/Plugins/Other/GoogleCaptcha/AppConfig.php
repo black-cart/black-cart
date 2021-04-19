@@ -1,12 +1,12 @@
 <?php
 /**
- * Format plugin for S-Cart 3.x
+ * Format plugin for black-cart 3.x
  */
 #App\Plugins\Other\GoogleCaptcha\AppConfig.php
 namespace App\Plugins\Other\GoogleCaptcha;
 
 use App\Plugins\Other\GoogleCaptcha\Models\PluginModel;
-use SCart\Core\Admin\Models\AdminConfig;
+use BlackCart\Core\Admin\Models\AdminConfig;
 use App\Plugins\ConfigDefault;
 use GuzzleHttp\Client;
 

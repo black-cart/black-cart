@@ -2,8 +2,8 @@
 #app/Plugins/Cms/Content/AppConfig.php
 namespace App\Plugins\Cms\Content;
 ///
-use SCart\Core\Admin\Models\AdminMenu;
-use SCart\Core\Admin\Models\AdminConfig;
+use BlackCart\Core\Admin\Models\AdminMenu;
+use BlackCart\Core\Admin\Models\AdminConfig;
 use App\Plugins\Cms\Content\Models\CmsCategory;
 use App\Plugins\Cms\Content\Models\CmsContent;
 use App\Plugins\Cms\Content\Models\CmsImage;

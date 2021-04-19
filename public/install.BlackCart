@@ -1,7 +1,4 @@
 <?php
-/**
- * @author Naruto <lanhktc@gmail.com>
- */
 
 require __DIR__ . '/../vendor/autoload.php';
 $app = include_once __DIR__ . '/../bootstrap/app.php';
@@ -164,7 +161,7 @@ if (request()->method() == 'POST' && request()->ajax()) {
 
     case 'step3':
         try {
-            rename(base_path() . '/public/install.php', base_path() . '/public/install.scart');
+            rename(base_path() . '/public/install.php', base_path() . '/public/install.BlackCart');
         } catch (\Throwable $e) {
             echo json_encode([
                 'error' => '1',

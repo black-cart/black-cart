@@ -1,20 +1,21 @@
 {
-    "name": "s-cart/s-cart",
+    "name": "black-cart/black-cart",
     "description": "Free Laravel e-commerce for business: shopping cart, cms content, and more...",
-    "keywords": ["Laravel ecommerce","SCart ecommerce", "SCart open source", "Free Shopping cart", "Laravel multiple vendor", "Laravel marketplace", "Laravel multiple store",  "S-Cart"],
-    "homepage": "https://s-cart.org",
+    "keywords": ["Laravel ecommerce","BlackCart ecommerce", "BlackCart open source", "Free Shopping cart", "Laravel multiple vendor", "Laravel marketplace", "Laravel multiple store",  "Black-Cart"],
+    "homepage": "https://black-cart.org",
     "license": "MIT",
     "authors": [
         {
-            "name": "Lanh Le",
-            "email": "lanhktc@gmail.com"
+            "name": "Hao Ngo",
+            "email": "haongodev@gmail.com"
         }
     ],
     "type" : "project",
     "require": {
-        "php": "^7.3|^8.0",
+        "php": "^7.4|^8.0",
         "aws/aws-sdk-php": "^3.0",
         "barryvdh/laravel-dompdf": "^0.9.0",
+        "black-cart/core": "^1.0.1",
         "fideloper/proxy": "^4.4",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
@@ -24,8 +25,7 @@
         "laravel/passport": "^10.1",
         "laravel/socialite": "^5.13",
         "laravel/tinker": "^2.5",
-        "laravel/ui": "3.2",
-        "s-cart/core": "^6.0.0"
+        "laravel/ui": "^3.2"
     },
     "require-dev": {
         "facade/ignition": "^2.5",

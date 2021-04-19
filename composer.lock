@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "021b8bb99bb06ec1cd929ac48fd6c0c8",
+    "content-hash": "926783b98e363f2291a20a0e2de5a6b1",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -64,16 +64,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.178.2",
+            "version": "3.178.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "ba05bc572302c124960c2b0a9813169e790fcac6"
+                "reference": "5a268a20272c0c9171570ed57f68b629e966deab"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/ba05bc572302c124960c2b0a9813169e790fcac6",
-                "reference": "ba05bc572302c124960c2b0a9813169e790fcac6",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/5a268a20272c0c9171570ed57f68b629e966deab",
+                "reference": "5a268a20272c0c9171570ed57f68b629e966deab",
                 "shasum": ""
             },
             "require": {
@@ -148,9 +148,9 @@
             "support": {
                 "forum": "https://forums.aws.amazon.com/forum.jspa?forumID=80",
                 "issues": "https://github.com/aws/aws-sdk-php/issues",
-                "source": "https://github.com/aws/aws-sdk-php/tree/3.178.2"
+                "source": "https://github.com/aws/aws-sdk-php/tree/3.178.5"
             },
-            "time": "2021-04-12T18:16:30+00:00"
+            "time": "2021-04-15T18:12:46+00:00"
         },
         {
             "name": "barryvdh/laravel-dompdf",
@@ -217,6 +217,73 @@
                 }
             ],
             "time": "2020-12-27T12:05:53+00:00"
+        },
+        {
+            "name": "black-cart/core",
+            "version": "v1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/black-cart/core.git",
+                "reference": "76578e0511dc51367d0f8e14666798ee270e9159"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/black-cart/core/zipball/76578e0511dc51367d0f8e14666798ee270e9159",
+                "reference": "76578e0511dc51367d0f8e14666798ee270e9159",
+                "shasum": ""
+            },
+            "require": {
+                "google/apiclient": "^2.0",
+                "laravel/framework": "^8.0",
+                "php": "^7.4|^8.0",
+                "phpoffice/phpspreadsheet": "^1.16",
+                "spatie/db-dumper": "^2.18",
+                "spatie/laravel-json-api-paginate": "^1.10",
+                "spatie/laravel-pjax": "^2.1",
+                "unisharp/laravel-filemanager": "^2.2"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "dont-discover": [],
+                    "providers": [
+                        "BlackCart\\Core\\BlackCartServiceProvider",
+                        "UniSharp\\LaravelFilemanager\\LaravelFilemanagerServiceProvider"
+                    ],
+                    "aliases": {
+                        "Export": "BlackCart\\Core\\Library\\ProcessData\\Export",
+                        "ProcessData": "BlackCart\\Core\\Library\\ProcessData\\Boot",
+                        "Cart": "BlackCart\\Core\\Library\\ShoppingCart\\Facades\\Cart",
+                        "Admin": "BlackCart\\Core\\Admin\\Admin"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "BlackCart\\Core\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Hao Ngo",
+                    "email": "haongolog@gmail.com"
+                }
+            ],
+            "description": "Free Laravel e-commerce for business",
+            "keywords": [
+                "BlackCart ecommerce",
+                "black-cart",
+                "laravel ecommerce"
+            ],
+            "support": {
+                "issues": "https://github.com/black-cart/core/issues",
+                "source": "https://github.com/black-cart/core/tree/v1.0.1"
+            },
+            "time": "2021-04-16T18:29:06+00:00"
         },
         {
             "name": "brick/math",
@@ -4643,74 +4710,6 @@
             "time": "2020-08-18T17:17:46+00:00"
         },
         {
-            "name": "s-cart/core",
-            "version": "6.0.6.4",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/s-cart/core.git",
-                "reference": "3eb6cef3e833bbba39f593ec982cbd15d3d38a0c"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/s-cart/core/zipball/3eb6cef3e833bbba39f593ec982cbd15d3d38a0c",
-                "reference": "3eb6cef3e833bbba39f593ec982cbd15d3d38a0c",
-                "shasum": ""
-            },
-            "require": {
-                "google/apiclient": "^2.0",
-                "laravel/framework": "^8.0",
-                "php": "^7.3|^8.0",
-                "phpoffice/phpspreadsheet": "^1.16",
-                "spatie/db-dumper": "^2.18",
-                "spatie/laravel-json-api-paginate": "^1.10",
-                "spatie/laravel-pjax": "^2.1",
-                "unisharp/laravel-filemanager": "^2.2"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "dont-discover": [],
-                    "providers": [
-                        "SCart\\Core\\ScartServiceProvider",
-                        "UniSharp\\LaravelFilemanager\\LaravelFilemanagerServiceProvider"
-                    ],
-                    "aliases": {
-                        "Export": "SCart\\Core\\Library\\ProcessData\\Export",
-                        "ProcessData": "SCart\\Core\\Library\\ProcessData\\Boot",
-                        "Cart": "SCart\\Core\\Library\\ShoppingCart\\Facades\\Cart",
-                        "Admin": "SCart\\Core\\Admin\\Admin"
-                    }
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "SCart\\Core\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Lanh Le",
-                    "email": "lanhktc@gmail.com"
-                }
-            ],
-            "description": "Free Laravel e-commerce for business",
-            "homepage": "https://s-cart.org",
-            "keywords": [
-                "S-Cart",
-                "SCart ecommerce",
-                "laravel ecommerce"
-            ],
-            "support": {
-                "issues": "https://github.com/s-cart/core/issues",
-                "source": "https://github.com/s-cart/core/tree/6.0.6.4"
-            },
-            "time": "2021-04-13T00:22:19+00:00"
-        },
-        {
             "name": "sabberworm/php-css-parser",
             "version": "8.3.1",
             "source": {
@@ -8459,7 +8458,7 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
-        "php": "^7.3|^8.0"
+        "php": "^7.4|^8.0"
     },
     "platform-dev": [],
     "plugin-api-version": "2.0.0"

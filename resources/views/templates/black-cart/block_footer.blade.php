@@ -84,9 +84,9 @@
                 <p class="rights"><span>&copy;&nbsp;</span><span class="copyright-year"></span><span>&nbsp;</span><span>{{ sc_store('title') }}</span><span>.&nbsp; All rights reserved</span></p>
               </div>
               <div class="col-md-auto order-md-1"> <a target="_blank"
-                href="https://www.facebook.com/SCart.Ecommerce/">Fanpage FB</a></div>
+                href="https://www.facebook.com/Scart.Ecommerce/">Fanpage FB</a></div>
               <div class="col-md-auto">
-                    Power by <a href="{{ config('s-cart.homepage') }}">{{ config('s-cart.name') }} {{ config('s-cart.sub-version') }}</a>
+                    Power by <a href="{{ config('black-cart.homepage') }}">{{ config('black-cart.name') }} {{ config('black-cart.sub-version') }}</a>
               </div>
             </div>
           </div>

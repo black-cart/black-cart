@@ -1,30 +1,30 @@
 <p align="center">
-    <img src="https://s-cart.org/logo.png?v=4" width="150">
+    <img src="https://black-cart.org/logo.png?v=4" width="150">
 </p>
 <p align="center">Free open source e-commerce for business<br>
-    <code><b>composer create-project s-cart/s-cart</b></code></p>
+    <code><b>composer create-project black-cart/black-cart</b></code></p>
 <p align="center">
- <a href="https://s-cart.org">Home page</a> | <a href="https://demo.s-cart.org">Demo</a> | <a href="https://s-cart.org/en/docs/master/installation.html">Document</a>  | <a href="https://s-cart.org/en/docs/master">Video Guide</a> | <a href="https://s-cart.org/en/download.html">Download full source</a>
+ <a href="https://black-cart.org">Home page</a> | <a href="https://demo.black-cart.org">Demo</a> | <a href="https://black-cart.org/en/docs/master/installation.html">Document</a>  | <a href="https://black-cart.org/en/docs/master">Video Guide</a> | <a href="https://black-cart.org/en/download.html">Download full source</a>
 </p>
 <p align="center">
-<a href="https://packagist.org/packages/s-cart/s-cart"><img src="https://poser.pugx.org/s-cart/s-cart/d/total" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/s-cart/s-cart"><img src="https://poser.pugx.org/s-cart/s-cart/v/stable" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/s-cart/s-cart"><img src="https://poser.pugx.org/s-cart/s-cart/license" alt="License"></a>
+<a href="https://packagist.org/packages/black-cart/black-cart"><img src="https://poser.pugx.org/black-cart/black-cart/d/total" alt="Total Downloads"></a>
+<a href="https://packagist.org/packages/black-cart/black-cart"><img src="https://poser.pugx.org/black-cart/black-cart/v/stable" alt="Latest Stable Version"></a>
+<a href="https://packagist.org/packages/black-cart/black-cart"><img src="https://poser.pugx.org/black-cart/black-cart/license" alt="License"></a>
 </p>
 
-## About S-cart
-S-Cart is the best free e-commerce website project for individuals and businesses, built on top of Laravel Framework and the latest technologies.
+## About black-cart
+black-cart is the best free e-commerce website project for individuals and businesses, built on top of Laravel Framework and the latest technologies.
 Our goal is "Efficient and friendly for everyone":
 - Efficiency: Meet even the smallest requirements of customers.
 - Friendly: Easy to use, easy to maintain, easy to develop.
 - Everyone: Businesses, individuals, developers, students.
 
 ## IMAGES:
-<img src="https://sc-shared.s3.ap-southeast-1.amazonaws.com/guide/info/s-cart-content.jpg">
-<img src="https://s-cart.org/data/30/shop-list.jpg?v=1">
-<img src="https://s-cart.org/data/30/admin-dashboard.jpg?v=1">
+<img src="https://sc-shared.s3.ap-southeast-1.amazonaws.com/guide/info/black-cart-content.jpg">
+<img src="https://black-cart.org/data/30/shop-list.jpg?v=1">
+<img src="https://black-cart.org/data/30/admin-dashboard.jpg?v=1">
 
-## S-Cart functions:
+## black-cart functions:
 
 <pre>
 ======= FRONT-END =======
@@ -81,18 +81,18 @@ From Version 5.0
 
 ## Installation & configuration:
 
-<b>How to map your domain to s-cart? <a href="https://s-cart.org/en/docs/master/installation.html">CLICK HERE</a></b>
+<b>How to map your domain to black-cart? <a href="https://black-cart.org/en/docs/master/installation.html">CLICK HERE</a></b>
 
-**Step1: Install last version S-cart**
+**Step1: Install last version black-cart**
 
 Option 1: **From composer**
 ```
-composer create-project s-cart/s-cart
+composer create-project black-cart/black-cart
 ```
 
 Option 2: **From github**
 ```
-git clone https://github.com/s-cart/s-cart.git
+git clone https://github.com/black-cart/black-cart.git
 ```
 Then, install vendor:
 ```
@@ -100,7 +100,7 @@ composer install
 ```
 Option 3: **Download full source (included vendors)**
 ```
-https://s-cart.org/en/download.html
+https://black-cart.org/en/download.html
 ```
 
 **Step2: Set writable permissions for the following directories:**
@@ -113,14 +113,14 @@ https://s-cart.org/en/download.html
 
 **Step3: Create database**
 ```
-- Create a new database. Example database name is "s-cart"
+- Create a new database. Example database name is "black-cart"
 ```
 
 **Step4: Install**
 
 Option 1: **Install automatic**
 ```
-Access your-domain.com/install.php to install S-cart.
+Access your-domain.com/install.php to install black-cart.
 ```
 Then, remove or rename file *public/install.php*
 
@@ -139,7 +139,7 @@ If installing with link "install.php" unsuccessful, you can install it manually 
 APP_DEBUG=false (Set "false" is security)
 DB_HOST=127.0.0.1 (Database host)
 DB_PORT=3306 (Database port)
-DB_DATABASE=s-cart (Database name)
+DB_DATABASE=black-cart (Database name)
 DB_USERNAME=root (User name use database)
 DB_PASSWORD= (Password connect to database)
 APP_URL=http://localhost (Your url)
@@ -154,14 +154,14 @@ DB_PREFIX=sc_ (Must be "sc_" because it is fixed in the .sql file)
 
 ## Useful information:
 
-To view S-Cart version information
+To view black-cart version information
 
 `php artisan sc:info`
 
-To update the core version of S-Cart:
+To update the core version of black-cart:
 
-`composer update s-cart/core`
-Or you can use `php composer.phar update s-cart/core` if you don't have composer installed.
+`composer update black-cart/core`
+Or you can use `php composer.phar update black-cart/core` if you don't have composer installed.
 
 To create a plugin:
 
@@ -186,29 +186,29 @@ To manually customize file config validation (<code>config/validation.php</code>
 
 `php artisan sc:customize validation`
 
-More detail: https://s-cart.org/en/docs/master
+More detail: https://black-cart.org/en/docs/master
 
 ## Funding and supporting the project
 
 You can support our with donations and sponsoring. Sponsorships are crucial for ongoing and future development of the project. Any support is always welcome even if it's as low as $1 :) 
-Please visit the <a href="https://s-cart.org/en/license.html" target="_blank">S-Cart</a>
+Please visit the <a href="https://black-cart.org/en/license.html" target="_blank">black-cart</a>
 
 ## Security Vulnerabilities:
 
-If you discover a security vulnerability within S-Cart ecommerce, please send an e-mail to Lanh Le via lanhktc@gmail.com. All security vulnerabilities will be promptly addressed.
+If you discover a security vulnerability within black-cart ecommerce, please send an e-mail to Lanh Le via lanhktc@gmail.com. All security vulnerabilities will be promptly addressed.
 
 ## License:
 
-`S-Cart` is licensed under [The MIT License (MIT)](LICENSE).
+`black-cart` is licensed under [The MIT License (MIT)](LICENSE).
 
 ## Demo:
 
-- Font-end : http://demo.s-cart.org
-- Back-end: http://demo.s-cart.org/sc_admin   <code>User/pass: test/123456</code>
+- Font-end : http://demo.black-cart.org
+- Back-end: http://demo.black-cart.org/sc_admin   <code>User/pass: test/123456</code>
 
 ## Premium version:
 
-- Link : https://s-cart.org/en/premium.html
+- Link : https://black-cart.org/en/premium.html
 
 ## 
 

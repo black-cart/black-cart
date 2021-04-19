@@ -73,7 +73,7 @@ class PluginModel extends Model
      */
     public function users()
     {
-        return $this->belongsToMany(\SCart\Core\Front\Models\ShopCustomer::class, $this->table_related, 'discount_id','customer_id')
+        return $this->belongsToMany(\BlackCart\Core\Front\Models\ShopCustomer::class, $this->table_related, 'discount_id','customer_id')
             ->withPivot('used_at', 'log');
     }
 

@@ -1,7 +1,7 @@
 <?php
 namespace App\Admin\Controllers;
 
-class AdminBannerTypeController extends \SCart\Core\Admin\Controllers\AdminBannerTypeController
+class AdminBannerTypeController extends \BlackCart\Core\Admin\Controllers\AdminBannerTypeController
 {
     public function __construct()
     {

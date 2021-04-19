@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\DB;
-use SCart\Core\Front\Models\ModelTrait;
+use BlackCart\Core\Front\Models\ModelTrait;
 
 class CmsContent extends Model
 {

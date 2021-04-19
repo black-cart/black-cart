@@ -42,7 +42,7 @@
 
 ## v2.1.1 (2019-02-22)
 ### Add
-- Auto install s-cart by link your-domain/install.php
+- Auto install black-cart by link your-domain/install.php
 - Extension, module
 
 
@@ -92,7 +92,7 @@
 ## v1.6.2 (2018-09-16)
 
 ### Changed
-- Change name of file sql from laravel-framework.sql to s-cart.sql
+- Change name of file sql from laravel-framework.sql to black-cart.sql
 - Define 'theme' and 'theme_asset' in database config
 - Disable button view in backend
 

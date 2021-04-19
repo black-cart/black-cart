@@ -1,7 +1,7 @@
 <?php
 namespace App\Admin\Controllers;
 
-class AdminLengthController extends \SCart\Core\Admin\Controllers\AdminLengthController
+class AdminLengthController extends \BlackCart\Core\Admin\Controllers\AdminLengthController
 {
     public function __construct()
     {

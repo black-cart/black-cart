@@ -2,7 +2,7 @@
 #App\Plugins\Payment\BankTransfer\AppConfig.php
 namespace App\Plugins\Payment\BankTransfer;
 
-use SCart\Core\Admin\Models\AdminConfig;
+use BlackCart\Core\Admin\Models\AdminConfig;
 use App\Plugins\ConfigDefault;
 class AppConfig extends ConfigDefault
 {

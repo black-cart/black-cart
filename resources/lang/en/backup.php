@@ -1,6 +1,6 @@
 <?php
 return [
-    'guide'            => '<span class="text-danger">NOTE: To use MySQL server on the command line, you must have the correct system path. This is usually done automatically. Read document in <a target=_new href="https://s-cart.org/guide/backup.html">HERE</a></span>',
+    'guide'            => '<span class="text-danger">NOTE: To use MySQL server on the command line, you must have the correct system path. This is usually done automatically. Read document in <a target=_new href="https://black-cart.org/guide/backup.html">HERE</a></span>',
     'generate_now'     => 'Gererate a backup now',
     'processing'       => 'Processing...',
     'manager'          => 'Backup management',

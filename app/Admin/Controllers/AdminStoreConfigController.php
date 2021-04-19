@@ -1,7 +1,7 @@
 <?php
 namespace App\Admin\Controllers;
 
-class AdminStoreConfigController extends \SCart\Core\Admin\Controllers\AdminStoreConfigController
+class AdminStoreConfigController extends \BlackCart\Core\Admin\Controllers\AdminStoreConfigController
 {
     public function __construct()
     {

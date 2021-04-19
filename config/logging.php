@@ -65,7 +65,7 @@ return [
         'slack'      => [
             'driver'   => 'slack',
             'url'      => env('LOG_SLACK_WEBHOOK_URL'),
-            'username' => 'S-Cart Log',
+            'username' => 'black-cart Log',
             'emoji'    => ':boom:',
             'level'    => 'debug',
         ],

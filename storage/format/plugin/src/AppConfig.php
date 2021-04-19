@@ -6,7 +6,7 @@
 namespace App\Plugins\Plugin_Code\Plugin_Key;
 
 use App\Plugins\Plugin_Code\Plugin_Key\Models\PluginModel;
-use SCart\Core\Admin\Models\AdminConfig;
+use BlackCart\Core\Admin\Models\AdminConfig;
 use App\Plugins\ConfigDefault;
 class AppConfig extends ConfigDefault
 {
@@ -18,7 +18,7 @@ class AppConfig extends ConfigDefault
     	$this->configGroup = $config['configGroup'];
     	$this->configCode = $config['configCode'];
         $this->configKey = $config['configKey'];
-        $this->scartVersion = $config['scartVersion'];
+        $this->BlackCartVersion = $config['BlackCartVersion'];
         //Path
         $this->pathPlugin = $this->configGroup . '/' . $this->configCode . '/' . $this->configKey;
         //Language
@@ -55,7 +55,7 @@ class AppConfig extends ConfigDefault
             );
 
             /*Insert plugin's html elements into index of admin pages
-            Detail: https://s-cart.org/docs/master/create-new-a-plugin.html 
+            Detail: https://black-cart.org/docs/master/create-new-a-plugin.html 
             */
 
             // AdminConfig::insert(

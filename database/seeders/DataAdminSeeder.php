@@ -204,8 +204,8 @@ class DataAdminSeeder extends Seeder
         );
         DB::connection(SC_CONNECTION)->table(SC_DB_PREFIX.'admin_store')->insert(
             [
-                'logo' => 'data/logo/scart-mid.png', 
-                'template' => 's-cart-light', 
+                'logo' => 'data/logo/Scart-mid.png', 
+                'template' => 'black-cart-light', 
                 'phone' => '0123456789', 
                 'long_phone' => 'Support: 0987654321', 
                 'email' => $this->adminEmail, 
@@ -221,10 +221,10 @@ class DataAdminSeeder extends Seeder
         
         DB::connection(SC_CONNECTION)->table(SC_DB_PREFIX.'admin_store_description')->insert(
             [
-                ['store_id' => '1', 'lang' => 'en', 'title' => 'Demo S-Cart : Free Laravel eCommerce', 'description' => 'Free website shopping cart for business', 'keyword' => '', 'maintain_content' => '<center><img src="/images/maintenance.png" />
+                ['store_id' => '1', 'lang' => 'en', 'title' => 'Demo black-cart : Free Laravel eCommerce', 'description' => 'Free website shopping cart for business', 'keyword' => '', 'maintain_content' => '<center><img src="/images/maintenance.png" />
     <h3><span style="color:#e74c3c;"><strong>Sorry! We are currently doing site maintenance!</strong></span></h3>
     </center>', 'maintain_note' => 'Website is in maintenance mode!'],
-                ['store_id' => '1', 'lang' => 'vi', 'title' => 'Demo S-Cart: Mã nguồn website thương mại điện tử miễn phí', 'description' => 'Laravel shopping cart for business', 'keyword' => '', 'maintain_content' => '<center><img src="/images/maintenance.png" />
+                ['store_id' => '1', 'lang' => 'vi', 'title' => 'Demo black-cart: Mã nguồn website thương mại điện tử miễn phí', 'description' => 'Laravel shopping cart for business', 'keyword' => '', 'maintain_content' => '<center><img src="/images/maintenance.png" />
     <h3><span style="color:#e74c3c;"><strong>Xin lỗi! Hiện tại website đang bảo trì!</strong></span></h3>
     </center>', 'maintain_note' => 'Website đang trong chế độ bảo trì!'],
             ]

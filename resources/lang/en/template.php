@@ -12,7 +12,7 @@ return [
     'import_success' => 'Import success!',
     'error_exist' => 'Template exist!',
     'template_import' => '<a href="'.route('admin_template.import').'" target=_new><span class="btn btn-success btn-flat"><i class="fa fa-floppy-o" aria-hidden="true"></i> Import Template</span></a>',
-    'template_more' => '<a href="https://s-cart.org/template.html" target=_new><i class="fa fa-download" aria-hidden="true"></i> Download more HERE</a>',
+    'template_more' => '<a href="https://black-cart.org/template.html" target=_new><i class="fa fa-download" aria-hidden="true"></i> Download more HERE</a>',
     'manager'    => 'Template management',
     'title'      => 'Template list',
     'name'       => 'Template name',
@@ -46,7 +46,7 @@ return [
     'image_demo' => 'Image demo',
     'only_version_current' => 'Only this version',
     'compatible' => 'Compatible',
-    'guide'      => 'Read document in <a target=_new href="https://s-cart.org/guide/template.html">HERE</a>',
+    'guide'      => 'Read document in <a target=_new href="https://black-cart.org/guide/template.html">HERE</a>',
     'used' => 'Template used',
     'admin'      => [
         'list'  => 'Template list',

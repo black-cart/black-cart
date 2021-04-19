@@ -1,7 +1,7 @@
 <?php
 namespace App\Http\Controllers;
 
-class ShopAccountController extends \SCart\Core\Front\Controllers\ShopAccountController
+class ShopAccountController extends \BlackCart\Core\Front\Controllers\ShopAccountController
 {
     public function __construct()
     {

@@ -3,7 +3,7 @@
 namespace App\Plugins\Total\Discount\Controllers;
 
 use App\Plugins\Total\Discount\Models\PluginModel as Discount;
-use SCart\Core\Front\Models\ShopOrderTotal;
+use BlackCart\Core\Front\Models\ShopOrderTotal;
 use Carbon\Carbon;
 use App\Plugins\Total\Discount\AppConfig;
 use App\Http\Controllers\RootFrontController;

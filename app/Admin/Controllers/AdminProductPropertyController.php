@@ -1,7 +1,7 @@
 <?php
 namespace App\Admin\Controllers;
 
-class AdminProductPropertyController extends \SCart\Core\Admin\Controllers\AdminProductPropertyController
+class AdminProductPropertyController extends \BlackCart\Core\Admin\Controllers\AdminProductPropertyController
 {
     public function __construct()
     {

@@ -1,7 +1,7 @@
 <?php
 namespace App\Admin\Controllers;
 
-class AdminEmailTemplateController extends \SCart\Core\Admin\Controllers\AdminEmailTemplateController
+class AdminEmailTemplateController extends \BlackCart\Core\Admin\Controllers\AdminEmailTemplateController
 {
     public function __construct()
     {

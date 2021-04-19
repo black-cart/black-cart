@@ -1,7 +1,7 @@
 <?php
 namespace App\Admin\Controllers;
 
-class AdminPluginsController extends \SCart\Core\Admin\Controllers\AdminPluginsController
+class AdminPluginsController extends \BlackCart\Core\Admin\Controllers\AdminPluginsController
 {
     public function __construct()
     {

@@ -9,7 +9,7 @@ abstract class  ConfigDefault
     public $configKey;
     public $title;
     public $version;
-    public $scartVersion;
+    public $BlackCartVersion;
     public $auth;
     public $link;
     public $image;
