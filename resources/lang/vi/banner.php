@@ -12,6 +12,7 @@ return [
     'title' => 'Tiêu đề',
     'admin'  => [
         'title'          => 'Banner',
+        'type_title'          => 'Loại Banner',
         'create_success' => 'Tạo mới thành công!',
         'edit_success'   => 'Cập nhật thành công!',
         'list'           => 'Danh sách banner',

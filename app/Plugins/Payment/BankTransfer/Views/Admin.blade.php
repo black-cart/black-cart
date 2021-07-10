@@ -1,4 +1,4 @@
-@extends($templatePathAdmin.'layout')
+@extends($templatePathAdmin.'Layout.layout')
 
 @section('main')
       <div class="card card-primary card-outline card-outline-tabs">
