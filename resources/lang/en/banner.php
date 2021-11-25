@@ -26,6 +26,7 @@ return [
         'sort'           => 'Sort',
         'search'         => 'Search',
         'add_new'        => 'Add new',
+        'add_new_type'   => 'Add new type',
         'add_new_title'  => 'Add banner',
         'add_new_des'    => 'Create a new banner',
         'select_target'    => 'Select target',

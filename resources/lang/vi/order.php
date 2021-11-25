@@ -62,9 +62,8 @@ return [
     'amount'                => 'Giá tiền',
     'search'                => 'Tìm kiếm đơn hàng',
     'success'               => [
-        'title' => 'Đơn hàng thành công',
-        'msg' => 'Cảm ơn vì đơn hàng của bạn!',
-        'order_info' => 'Đơn hàng của bạn: #:order_id',
+        'title' => 'Đơn hàng #:order_id của bạn đã đặt hàng thành công',
+        'msg' => 'Cảm ơn vì đơn hàng của bạn <br> Chúng tôi sẽ liên hệ tới bạn sau !',
     ],
     'send_mail'             => [
         'title'     => 'Email',

@@ -15,11 +15,11 @@ class CmsCategory extends Model
     use ModelTrait;
 
     public $timestamps = false;
-    public $table = SC_DB_PREFIX.'cms_category';
+    public $table = BC_DB_PREFIX.'cms_category';
     protected $guarded = [];
-    protected $connection = SC_CONNECTION;
+    protected $connection = BC_CONNECTION;
 
-    protected  $sc_parent = ''; // category id parent
+    protected  $bc_parent = ''; // category id parent
 
     public function descriptions()
     {
@@ -64,7 +64,7 @@ class CmsCategory extends Model
         //description
         $data = $this
             ->leftJoin($tableDescription, $tableDescription . '.category_id', $this->getTable() . '.id')
-            ->where($tableDescription . '.lang', sc_get_locale());
+            ->where($tableDescription . '.lang', bc_get_locale());
 
         $data = $data->sort($sortBy, $sortOrder);
         if(count($arrOpt = [])) {
@@ -87,7 +87,7 @@ class CmsCategory extends Model
     */
     public function getThumb()
     {
-        return sc_image_get_path_thumb($this->image);
+        return bc_image_get_path_thumb($this->image);
     }
 
     /*
@@ -95,13 +95,13 @@ class CmsCategory extends Model
     */
     public function getImage()
     {
-        return sc_image_get_path($this->image);
+        return bc_image_get_path($this->image);
 
     }
 
     public function getUrl()
     {
-        return sc_route('cms.category', ['alias' => $this->alias]);
+        return bc_route('cms.category', ['alias' => $this->alias]);
     }
 
 
@@ -140,7 +140,7 @@ class CmsCategory extends Model
         //description
         $category = $this
             ->leftJoin($tableDescription, $tableDescription . '.category_id', $this->getTable() . '.id')
-            ->where($tableDescription . '.lang', sc_get_locale())
+            ->where($tableDescription . '.lang', bc_get_locale())
             ->where($this->getTable() . '.store_id', config('app.storeId'));
 
         if ($type == null) {
@@ -189,14 +189,14 @@ class CmsCategory extends Model
             $table->primary(['category_id', 'lang']);
         });
 
-        DB::connection(SC_CONNECTION)->table($this->table)->insert(
+        DB::connection(BC_CONNECTION)->table($this->table)->insert(
             [
                 ['id' => '1', 'alias'=> 'demo-category-1', 'image' => '/data/cms-image/cms.jpg', 'parent' => '0', 'sort' => '0', 'status' => '1', 'store_id' => 1],
                 ['id' => '2', 'alias'=> 'demo-category-2', 'image' => '/data/cms-image/cms.jpg', 'parent' => '0', 'sort' => '0', 'status' => '1', 'store_id' => 1],
             ]
         );
 
-        DB::connection(SC_CONNECTION)->table($this->table.'_description')->insert(
+        DB::connection(BC_CONNECTION)->table($this->table.'_description')->insert(
             [
                 ['category_id' => '1', 'lang' => 'en', 'title' => 'Category CMS 1', 'keyword' => '', 'description' => ''],
                 ['category_id' => '1', 'lang' => 'vi', 'title' => 'Danh mục CMS 1', 'keyword' => '', 'description' => ''],
@@ -219,9 +219,9 @@ class CmsCategory extends Model
      */
     public function setParent($parent) {
         if ($parent === 'all') {
-            $this->sc_parent = $parent;
+            $this->bc_parent = $parent;
         } else {
-            $this->sc_parent = (int)$parent;
+            $this->bc_parent = (int)$parent;
         }
         return $this;
     }
@@ -244,33 +244,33 @@ class CmsCategory extends Model
         //description
         $query = $this
             ->leftJoin($tableDescription, $tableDescription . '.category_id', $this->getTable() . '.id')
-            ->where($tableDescription . '.lang', sc_get_locale());
+            ->where($tableDescription . '.lang', bc_get_locale());
         //search keyword
-        if ($this->sc_keyword !='') {
+        if ($this->bc_keyword !='') {
             $query = $query->where(function ($sql) use($tableDescription){
-                $sql->where($tableDescription . '.title', 'like', '%' . $this->sc_keyword . '%');
+                $sql->where($tableDescription . '.title', 'like', '%' . $this->bc_keyword . '%');
             });
         }
 
         $query = $query->where('status', 1)
         ->where('store_id', config('app.storeId'));
 
-        if ($this->sc_parent !== 'all') {
-            $query = $query->where('parent', $this->sc_parent);
+        if ($this->bc_parent !== 'all') {
+            $query = $query->where('parent', $this->bc_parent);
         }
 
-        if (count($this->sc_moreWhere)) {
-            foreach ($this->sc_moreWhere as $key => $where) {
+        if (count($this->bc_moreWhere)) {
+            foreach ($this->bc_moreWhere as $key => $where) {
                 if(count($where)) {
                     $query = $query->where($where[0], $where[1], $where[2]);
                 }
             }
         }
-        if ($this->sc_random) {
+        if ($this->bc_random) {
             $query = $query->inRandomOrder();
         } else {
-            if (is_array($this->sc_sort) && count($this->sc_sort)) {
-                foreach ($this->sc_sort as  $rowSort) {
+            if (is_array($this->bc_sort) && count($this->bc_sort)) {
+                foreach ($this->bc_sort as  $rowSort) {
                     if(is_array($rowSort) && count($rowSort) == 2) {
                         $query = $query->sort($rowSort[0], $rowSort[1]);
                     }

@@ -12,6 +12,6 @@ class CmsCategoryDescription extends Model
     public $incrementing  = false;
     protected $guarded    = [];
     public $timestamps    = false;
-    public $table = SC_DB_PREFIX.'cms_category_description';
-    protected $connection = SC_CONNECTION;
+    public $table = BC_DB_PREFIX.'cms_category_description';
+    protected $connection = BC_CONNECTION;
 }

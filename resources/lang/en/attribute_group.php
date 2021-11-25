@@ -23,5 +23,7 @@ return [
         'add_new'        => 'Add new',
         'add_new_title'  => 'Add attribute group',
         'add_new_des'    => 'Create a new attribute group',
+        'color_code'     => 'Use color code',
+        'imaged'         => 'Accept Upload',
     ],
 ];

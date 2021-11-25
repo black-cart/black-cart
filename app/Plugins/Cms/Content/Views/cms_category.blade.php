@@ -1,4 +1,4 @@
-@extends($sc_templatePath.'.layout')
+@extends($bc_templatePath.'.layout')
 
 @section('block_main')
 <section class="section section-xl bg-default">
@@ -36,7 +36,7 @@
 </section>
 
 {{-- Render include view --}}
-@if (!empty($layout_page && $includePathView = config('sc_include_view.'.$layout_page, [])))
+@if (!empty($layout_page && $includePathView = config('bc_include_view.'.$layout_page, [])))
 @foreach ($includePathView as $view)
   @if (view()->exists($view))
     @include($view)
@@ -53,7 +53,7 @@
     <div class="breadcrumbs-custom-footer">
         <div class="container">
           <ul class="breadcrumbs-custom-path">
-            <li><a href="{{ sc_route('home') }}">{{ trans('front.home') }}</a></li>
+            <li><a href="{{ bc_route('home') }}">{{ trans('front.home') }}</a></li>
             <li class="active">{{ $title ?? '' }}</li>
           </ul>
         </div>
@@ -65,7 +65,7 @@
 @push('scripts')
 
 {{-- Render include script --}}
-@if (!empty($layout_page) && $includePathScript = config('sc_include_script.'.$layout_page, []))
+@if (!empty($layout_page) && $includePathScript = config('bc_include_script.'.$layout_page, []))
 @foreach ($includePathScript as $script)
   @if (view()->exists($script))
     @include($script)

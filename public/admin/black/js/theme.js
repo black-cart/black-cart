@@ -1385,28 +1385,103 @@ theme = {
 
   },
 
-  initSliders: function() {
-    // Sliders for demo purpose in refine cards section
-    var slider = document.getElementById('sliderRegular');
-
-    noUiSlider.create(slider, {
-      start: 40,
-      connect: [true, false],
-      range: {
-        min: 0,
-        max: 100
-      }
-    });
-
-    var slider2 = document.getElementById('sliderDouble');
+  initSliders: function(min,max,elm) {
+    var slider2 = document.getElementById(elm);
+    var input0 = document.getElementById('price_min');
+    var input1 = document.getElementById('price_max');
+    var inputs = [input0, input1];
+    var inputsend = document.getElementById('price_min_max');
 
     noUiSlider.create(slider2, {
-      start: [20, 60],
+      start: [min, max],
       connect: true,
       range: {
-        min: 0,
-        max: 100
-      }
+        min: min,
+        max: max
+      },
+      tooltips: true,
+      format: wNumb({
+          prefix: '$',
+          decimals: 3,
+          thousand: '.',
+      })
+    });
+
+    slider2.noUiSlider.on('update', function (values, handle) {
+        inputs[handle].value = values[handle];
+    });
+
+    slider2.noUiSlider.on('change', function (values, handle,unencoded) {
+        var min = parseInt(unencoded[0]);
+        var max = parseInt(unencoded[1]);
+        inputsend.value = min+'-'+max;
+    });
+    // Listen to keydown events on the input field.
+    inputs.forEach(function (input, handle) {
+
+        input.addEventListener('change', function () {
+            slider2.noUiSlider.setHandle(handle, this.value);
+            var unencoded = slider2.noUiSlider.get('unencoded');
+            var min = parseInt(unencoded[0]);
+            var max = parseInt(unencoded[1]);
+            inputsend.value = min+'-'+max;
+        });
+
+
+        input.addEventListener('keyup', function (e) {
+
+            var values = slider2.noUiSlider.get();
+            var value = Number(values[handle]);
+
+            // [[handle0_down, handle0_up], [handle1_down, handle1_up]]
+            var steps = slider2.noUiSlider.steps();
+
+            // [down, up]
+            var step = steps[handle];
+
+            var position;
+
+            // 13 is enter,
+            // 38 is key up,
+            // 40 is key down.
+            switch (e.which) {
+
+                case 13:
+                    slider2.noUiSlider.setHandle(handle, this.value);
+                    break;
+
+                case 38:
+
+                    // Get step to go increase slider value (up)
+                    position = step[1];
+
+                    // false = no step is set
+                    if (position === false) {
+                        position = 1;
+                    }
+
+                    // null = edge of slider
+                    if (position !== null) {
+                        slider2.noUiSlider.setHandle(handle, value + position);
+                    }
+
+                    break;
+
+                case 40:
+
+                    position = step[0];
+
+                    if (position === false) {
+                        position = 1;
+                    }
+
+                    if (position !== null) {
+                        slider2.noUiSlider.setHandle(handle, value - position);
+                    }
+
+                    break;
+            }
+        });
     });
   },
 

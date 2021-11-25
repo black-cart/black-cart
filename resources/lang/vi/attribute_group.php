@@ -23,5 +23,7 @@ return [
         'search'         => 'Tìm kiếm',
         'add_new_title'  => 'Tạo nhóm thuộc tính',
         'add_new_des'    => 'Tạo mới nhóm thuộc tính',
+        'color_code'     => 'Mã màu',
+        'imaged'         => 'Cho phép tải ảnh',
     ],
 ];

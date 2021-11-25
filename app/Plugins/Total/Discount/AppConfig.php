@@ -147,13 +147,13 @@ class AppConfig extends ConfigDefault
             if ($check['content']['type'] == 'percent') {
                 $value = floor($subtotalWithTax * $check['content']['reward'] / 100);
             } else {
-                $value = sc_currency_value($check['content']['reward']);
+                $value = bc_currency_value($check['content']['reward']);
             }
             //Add info for earch store
             $dataStore[$storeID]['value'] = $value;
 
             $arrData = array(
-                'title'      => '<b>' . $this->title . ':</b> ' . $discount . '',
+                'title'      => $discount,
                 'code'       => $this->configCode,
                 'key'        => $this->configKey,
                 'image'      => $this->image,

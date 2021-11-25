@@ -6,7 +6,7 @@
  */
 return [
     'DB_PREFIX' => env('DB_PREFIX', ''),
-    'ADMIN_PREFIX' => env('ADMIN_PREFIX', 'sc_admin'),
+    'ADMIN_PREFIX' => env('ADMIN_PREFIX', 'bc_admin'),
     'LOG_SLACK_WEBHOOK_URL' => env('LOG_SLACK_WEBHOOK_URL',''),
     'MAIL_HOST' => env('MAIL_HOST',''),
     'MAIL_PORT' => env('MAIL_PORT',''),

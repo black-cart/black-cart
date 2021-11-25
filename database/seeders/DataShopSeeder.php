@@ -15,7 +15,7 @@ class DataShopSeeder extends Seeder
     public function run()
     {
 
-        DB::connection(SC_CONNECTION)->table(SC_DB_PREFIX . 'shop_banner')->insert(
+        DB::connection(BC_CONNECTION)->table(BC_DB_PREFIX . 'shop_banner')->insert(
             [
                 ['title'=> 'Banner 1', 'image' => '/data/banner/Main-banner-1-1903x600.jpg', 'html' => '<h1 class="swiper-title-1" data-caption-animate="fadeScale" data-caption-delay="100">Top-notch Furniture</h1><p class="biggest text-white-70" data-caption-animate="fadeScale" data-caption-delay="200">Sofa Store provides the best furniture and accessories for homes and offices.</p><div class="button-wrap" data-caption-animate="fadeInUp" data-caption-delay="300"> <span class="button button-zachem-tak-delat button-white button-zakaria"> Shop now</span> </div>', 'target' => '_self',  'status' => 1, 'type' => 'banner', 'store_id'=> 1],
                 ['title'=> 'Banner 2','image' => '/data/banner/Main-banner-3-1903x600.jpg', 'html' => '<h1 class="swiper-title-1" data-caption-animate="fadeScale" data-caption-delay="100">Top-notch Furniture</h1><p class="biggest text-white-70" data-caption-animate="fadeScale" data-caption-delay="200">Sofa Store provides the best furniture and accessories for homes and offices.</p><div class="button-wrap" data-caption-animate="fadeInUp" data-caption-delay="300"> <span class="button button-zachem-tak-delat button-white button-zakaria"> Shop now</span> </div>', 'target' => '_self',  'status' => 1, 'type' => 'banner', 'store_id'=> 1],
@@ -24,7 +24,7 @@ class DataShopSeeder extends Seeder
             ]
         );
 
-        DB::connection(SC_CONNECTION)->table(SC_DB_PREFIX . 'shop_banner_type')->insert(
+        DB::connection(BC_CONNECTION)->table(BC_DB_PREFIX . 'shop_banner_type')->insert(
             [
                 ['id' => '1', 'code' => 'banner', 'name' => 'Banner website'],
                 ['id' => '2', 'code' => 'background', 'name' => 'Background website'],
@@ -34,7 +34,7 @@ class DataShopSeeder extends Seeder
             ]
         );
 
-        DB::connection(SC_CONNECTION)->table(SC_DB_PREFIX . 'shop_language')->insert(
+        DB::connection(BC_CONNECTION)->table(BC_DB_PREFIX . 'shop_language')->insert(
             [
                 ['id' => '1', 'name' => 'English', 'code' => 'en', 'icon' => '/data/language/flag_uk.png', 'status' => '1', 'rtl' => '0', 'sort' => '1'],
                 ['id' => '2', 'name' => 'Tiếng Việt', 'code' => 'vi', 'icon' => '/data/language/flag_vn.png', 'status' => '1', 'rtl' => '0', 'sort' => '1'],
@@ -42,7 +42,7 @@ class DataShopSeeder extends Seeder
         );
 
 
-        DB::connection(SC_CONNECTION)->table(SC_DB_PREFIX . 'shop_layout_page')->insert(
+        DB::connection(BC_CONNECTION)->table(BC_DB_PREFIX . 'shop_layout_page')->insert(
             [
                 ['key' => 'home', 'name' => 'lang::layout.page_position.home'],
                 ['key' => 'shop_home', 'name' => 'lang::layout.page_position.shop_home'],
@@ -63,7 +63,7 @@ class DataShopSeeder extends Seeder
                 ['key' => 'store_product_list', 'name' => 'lang::layout.page_position.store_product_list'],
             ]
         );
-        DB::connection(SC_CONNECTION)->table(SC_DB_PREFIX . 'shop_layout_position')->insert(
+        DB::connection(BC_CONNECTION)->table(BC_DB_PREFIX . 'shop_layout_position')->insert(
             [
                 ['key' => 'meta', 'name' => 'lang::layout.page_block.meta'],
                 ['key' => 'header', 'name' => 'lang::layout.page_block.header'],
@@ -74,7 +74,7 @@ class DataShopSeeder extends Seeder
                 ['key' => 'banner_top', 'name' => 'lang::layout.page_block.banner_top'],
             ]
         );
-        DB::connection(SC_CONNECTION)->table(SC_DB_PREFIX . 'shop_link')->insert(
+        DB::connection(BC_CONNECTION)->table(BC_DB_PREFIX . 'shop_link')->insert(
             [
                 ['name' => 'lang::front.contact', 'url' => 'route::contact', 'target' => '_self', 'module' => '', 'group' => 'menu', 'status' => '1', 'sort' => '3', 'store_id' => 1],
                 ['name' => 'lang::front.about', 'url' => 'route::page.detail::about', 'target' => '_self', 'module' => '', 'group' => 'menu', 'status' => '1', 'sort' => '4', 'store_id' => 1],
@@ -83,13 +83,13 @@ class DataShopSeeder extends Seeder
                 ['name' => 'lang::front.wishlist_page', 'url' => 'route::wishlist', 'target' => '_self', 'module' => '', 'group' => 'footer', 'status' => '1', 'sort' => '3', 'store_id' => 1],
             ]
         );
-        DB::connection(SC_CONNECTION)->table(SC_DB_PREFIX . 'shop_shipping_standard')->insert(
+        DB::connection(BC_CONNECTION)->table(BC_DB_PREFIX . 'shop_shipping_standard')->insert(
             [
                 ['fee' => 20, 'shipping_free' => 10000],
             ]
         );
 
-        DB::connection(SC_CONNECTION)->table(SC_DB_PREFIX . 'shop_product_category')->insert(
+        DB::connection(BC_CONNECTION)->table(BC_DB_PREFIX . 'shop_product_category')->insert(
             [
                 ['product_id' => '1', 'category_id' => '13'],
                 ['product_id' => '2', 'category_id' => '13'],
@@ -113,7 +113,7 @@ class DataShopSeeder extends Seeder
             ]
         );
 
-        DB::connection(SC_CONNECTION)->table(SC_DB_PREFIX . 'shop_product_image')->insert(
+        DB::connection(BC_CONNECTION)->table(BC_DB_PREFIX . 'shop_product_image')->insert(
             [
                 ['image' => '/data/product/product-2.png', 'product_id' => '1'],
                 ['image' => '/data/product/product-11.png', 'product_id' => '1'],
@@ -138,7 +138,7 @@ class DataShopSeeder extends Seeder
             ]
         );
 
-        DB::connection(SC_CONNECTION)->table(SC_DB_PREFIX . 'shop_product_attribute')->insert(
+        DB::connection(BC_CONNECTION)->table(BC_DB_PREFIX . 'shop_product_attribute')->insert(
             [
                 ['name' => 'Blue', 'attribute_group_id' => '1', 'product_id' => '17', 'sort' => '0', 'add_price' => '50'],
                 ['name' => 'White', 'attribute_group_id' => '1', 'product_id' => '17', 'sort' => '0', 'add_price' => '0'],
@@ -152,28 +152,28 @@ class DataShopSeeder extends Seeder
         );
 
 
-        DB::connection(SC_CONNECTION)->table(SC_DB_PREFIX . 'shop_product_property')->insert(
+        DB::connection(BC_CONNECTION)->table(BC_DB_PREFIX . 'shop_product_property')->insert(
             [
                 ['id' => '1', 'code' => 'physical', 'name' => 'Product physical'],
                 ['id' => '2', 'code' => 'download', 'name' => 'Product download']
             ]
         );
 
-        DB::connection(SC_CONNECTION)->table(SC_DB_PREFIX . 'shop_product_build')->insert(
+        DB::connection(BC_CONNECTION)->table(BC_DB_PREFIX . 'shop_product_build')->insert(
             [
                 ['build_id' => '15', 'product_id' => '6', 'quantity' => '1'],
                 ['build_id' => '15', 'product_id' => '7', 'quantity' => '2'],
             ]
         );
 
-        DB::connection(SC_CONNECTION)->table(SC_DB_PREFIX . 'shop_product_group')->insert(
+        DB::connection(BC_CONNECTION)->table(BC_DB_PREFIX . 'shop_product_group')->insert(
             [
                 ['group_id' => '16', 'product_id' => '1'],
                 ['group_id' => '16', 'product_id' => '2'],
             ]
         );
 
-        DB::connection(SC_CONNECTION)->table(SC_DB_PREFIX . 'shop_product_promotion')->insert(
+        DB::connection(BC_CONNECTION)->table(BC_DB_PREFIX . 'shop_product_promotion')->insert(
             [
                 ['product_id' => '1', 'price_promotion' => '5000'],
                 ['product_id' => '2', 'price_promotion' => '3000'],
@@ -181,13 +181,13 @@ class DataShopSeeder extends Seeder
                 ['product_id' => '11', 'price_promotion' => '600'],
             ]
         );
-        DB::connection(SC_CONNECTION)->table(SC_DB_PREFIX . 'shop_attribute_group')->insert(
+        DB::connection(BC_CONNECTION)->table(BC_DB_PREFIX . 'shop_attribute_group')->insert(
             [
                 ['name' => 'Color', 'status' => '1', 'sort' => '1', 'type' => 'radio'],
                 ['name' => 'Size', 'status' => '1', 'sort' => '2', 'type' => 'select'],
             ]
         );
-        DB::connection(SC_CONNECTION)->table(SC_DB_PREFIX . 'shop_brand')->insert(
+        DB::connection(BC_CONNECTION)->table(BC_DB_PREFIX . 'shop_brand')->insert(
             [
                 ['name' => 'Husq',  'alias' => 'husq', 'image' => '/data/brand/01-181x52.png', 'url' => '', 'status' => '1', 'sort' => '0'],
                 ['name' => 'Ideal',  'alias' => 'ideal', 'image' => '/data/brand/02-181x52.png', 'url' => '', 'status' => '1', 'sort' => '0'],
@@ -200,14 +200,14 @@ class DataShopSeeder extends Seeder
             ]
         );
 
-        DB::connection(SC_CONNECTION)->table(SC_DB_PREFIX . 'shop_currency')->insert(
+        DB::connection(BC_CONNECTION)->table(BC_DB_PREFIX . 'shop_currency')->insert(
             [
                 ['id' => '1', 'name' => 'USD Dola', 'code' => 'USD', 'symbol' => '$', 'exchange_rate' => '1', 'precision' => '0', 'symbol_first' => '1', 'thousands' => ',', 'status' => '1', 'sort' => '0'],
                 ['id' => '2', 'name' => 'VietNam Dong', 'code' => 'VND', 'symbol' => '₫', 'exchange_rate' => '20', 'precision' => '0', 'symbol_first' => '0', 'thousands' => ',', 'status' => '1', 'sort' => '1'],
             ]
         );
 
-        DB::connection(SC_CONNECTION)->table(SC_DB_PREFIX . 'shop_order_status')->insert(
+        DB::connection(BC_CONNECTION)->table(BC_DB_PREFIX . 'shop_order_status')->insert(
             [
                 ['id' => '1', 'name' => 'New'],
                 ['id' => '2', 'name' => 'Processing'],
@@ -217,12 +217,12 @@ class DataShopSeeder extends Seeder
                 ['id' => '6', 'name' => 'Failed'],
             ]
         );
-        DB::connection(SC_CONNECTION)->table(SC_DB_PREFIX . 'shop_page')->insert(
+        DB::connection(BC_CONNECTION)->table(BC_DB_PREFIX . 'shop_page')->insert(
             [
                 ['id' => '1', 'image' => '', 'alias' => 'about', 'status' => '1', 'store_id' => 1],
             ]
         );
-        DB::connection(SC_CONNECTION)->table(SC_DB_PREFIX . 'shop_page_description')->insert(
+        DB::connection(BC_CONNECTION)->table(BC_DB_PREFIX . 'shop_page_description')->insert(
             [
                 ['page_id' => '1', 'lang' => 'en', 'title' => 'About', 'keyword' => '', 'description' => '', 'content' => '<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<img alt="" src="/data/product/product-2.png" style="width: 262px; height: 262px; float: right; margin: 10px;" /></p>
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
@@ -233,7 +233,7 @@ class DataShopSeeder extends Seeder
             ]
         );
 
-        DB::connection(SC_CONNECTION)->table(SC_DB_PREFIX . 'shop_payment_status')->insert(
+        DB::connection(BC_CONNECTION)->table(BC_DB_PREFIX . 'shop_payment_status')->insert(
             [
                 ['id' => '1', 'name' => 'Unpaid'],
                 ['id' => '2', 'name' => 'Partial payment'],
@@ -242,7 +242,7 @@ class DataShopSeeder extends Seeder
             ]
         );
 
-        DB::connection(SC_CONNECTION)->table(SC_DB_PREFIX . 'shop_shipping_status')->insert(
+        DB::connection(BC_CONNECTION)->table(BC_DB_PREFIX . 'shop_shipping_status')->insert(
             [
                 ['id' => '1', 'name' => 'Not sent'],
                 ['id' => '2', 'name' => 'Sending'],
@@ -250,26 +250,26 @@ class DataShopSeeder extends Seeder
             ]
         );
 
-        DB::connection(SC_CONNECTION)->table(SC_DB_PREFIX . 'shop_supplier')->insert(
+        DB::connection(BC_CONNECTION)->table(BC_DB_PREFIX . 'shop_supplier')->insert(
             [
                 ['id' => '1', 'alias' => 'abc-distributor',  'name' => 'ABC distributor', 'email' => 'abc@abc.com', 'phone' => '012496657567', 'image' => '/data/supplier/supplier.png', 'address' => '', 'url' => '', 'sort' => '0', 'store_id' => 1],
                 ['id' => '2', 'alias' => 'xyz-distributor',  'name' => 'XYZ distributor', 'email' => 'xyz@xyz.com', 'phone' => '012496657567', 'image' => '/data/supplier/supplier.png', 'address' => '', 'url' => '', 'sort' => '0', 'store_id' => 1],
             ]
         );
 
-        DB::connection(SC_CONNECTION)->table(SC_DB_PREFIX . 'shop_customer')->insert(
+        DB::connection(BC_CONNECTION)->table(BC_DB_PREFIX . 'shop_customer')->insert(
             [
                 ['id' => '1', 'first_name' => 'Naruto', 'last_name' => 'Kun', 'email' => 'test@test.com', 'password' => bcrypt(123), 'address1' => 'HCM', 'address2' => 'HCM city', 'phone' => '0667151172', 'postcode' => 70000, 'company' => 'KTC', 'country' => 'VN', 'created_at' => date('Y-m-d H:i:s')],
             ]
         );
 
-        DB::connection(SC_CONNECTION)->table(SC_DB_PREFIX . 'shop_customer_address')->insert(
+        DB::connection(BC_CONNECTION)->table(BC_DB_PREFIX . 'shop_customer_address')->insert(
             [
                 ['id' => '1', 'customer_id' => 1, 'first_name' => 'Naruto', 'last_name' => 'Kun', 'address1' => 'HCM', 'address2' => 'HCM city', 'phone' => '0667151172', 'postcode' => 70000, 'country' => 'VN'],
             ]
         );
 
-        DB::connection(SC_CONNECTION)->table(SC_DB_PREFIX . 'shop_country')->insert(
+        DB::connection(BC_CONNECTION)->table(BC_DB_PREFIX . 'shop_country')->insert(
             [
                 ['code' => 'AL', 'name' => 'Albania'],
                 ['code' => 'DZ', 'name' => 'Algeria'],
@@ -519,19 +519,19 @@ class DataShopSeeder extends Seeder
             ]
         );
 
-        DB::connection(SC_CONNECTION)->table(SC_DB_PREFIX . 'api_connection')->insert(
+        DB::connection(BC_CONNECTION)->table(BC_DB_PREFIX . 'api_connection')->insert(
             [
                 ['description' => 'Demo api connection', 'apiconnection' => 'appmobile', 'apikey' => uniqid(), 'status' => 0],
             ]
         );
 
-        DB::connection(SC_CONNECTION)->table(SC_DB_PREFIX . 'shop_tax')->insert(
+        DB::connection(BC_CONNECTION)->table(BC_DB_PREFIX . 'shop_tax')->insert(
             [
                 ['id' => '1', 'name' => 'Tax default (10%)', 'value' => 10],
             ]
         );
 
-        DB::connection(SC_CONNECTION)->table(SC_DB_PREFIX . 'shop_weight')->insert(
+        DB::connection(BC_CONNECTION)->table(BC_DB_PREFIX . 'shop_weight')->insert(
             [
                 ['id' => '1', 'name' => 'g', 'description' => 'Gram'],
                 ['id' => '2', 'name' => 'kg', 'description' => 'Kilogram'],
@@ -540,7 +540,7 @@ class DataShopSeeder extends Seeder
             ]
         );
 
-        DB::connection(SC_CONNECTION)->table(SC_DB_PREFIX . 'shop_length')->insert(
+        DB::connection(BC_CONNECTION)->table(BC_DB_PREFIX . 'shop_length')->insert(
             [
                 ['id' => '1', 'name' => 'mm', 'description' => 'Millimeter'],
                 ['id' => '2', 'name' => 'cm', 'description' => 'Centimeter'],

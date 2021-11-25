@@ -9,8 +9,8 @@ class RootFrontController extends Controller
     public $templateFile;
     public function __construct()
     {
-        $this->templatePath = 'templates.' . sc_store('template');
-        $this->templateFile = 'templates/' . sc_store('template');
+        $this->templatePath = 'templates.' . bc_store('template');
+        $this->templateFile = 'templates/' . bc_store('template');
     }
 
 
@@ -21,9 +21,9 @@ class RootFrontController extends Controller
      */
     public function pageNotFound()
     {
-        sc_check_view( $this->templatePath . '.notfound');
+        bc_check_view( $this->templatePath . '.Error.404');
         return view(
-             $this->templatePath . '.notfound',
+             $this->templatePath . '.Error.404',
             [
             'title' => trans('front.page_not_found_title'),
             'msg' => trans('front.page_not_found'),
@@ -40,9 +40,9 @@ class RootFrontController extends Controller
      */
     public function itemNotFound()
     {
-        sc_check_view( $this->templatePath . '.notfound');
+        bc_check_view( $this->templatePath . '.Error.404');
         return view(
-             $this->templatePath . '.notfound',
+             $this->templatePath . '.Error.404',
             [
                 'title' => trans('front.item_not_found_title'),
                 'msg' => trans('front.item_not_found'),

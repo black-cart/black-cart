@@ -9,7 +9,8 @@ $(document).ready(function() {
     $sidebar_responsive = $('body > .navbar-collapse');
 
     $sidebar_mini_active = JSON.parse(localStorage.getItem("sidebar_mini_active"));
-    white_color = false;
+
+    $white_color = JSON.parse(localStorage.getItem("theme_active"));
 
     window_width = $(window).width();
 
@@ -90,30 +91,35 @@ $(document).ready(function() {
       }, 1000);
     });
 
-    $('.switch-change-color input').on("switchChange.bootstrapSwitch", function() {
-      var $btn = $(this);
 
-      if (white_color == true) {
-
+    if ($white_color == true) {
+        $('body').addClass('white-content');
+        $('.switch-change-theme input').prop('checked', true).change();
+        $white_color = true;
+    }
+    $('.switch-change-theme input').on("switchChange.bootstrapSwitch", function() {
+    
+      if ($white_color == true) {
         $('body').addClass('change-background');
         setTimeout(function() {
           $('body').removeClass('change-background');
           $('body').removeClass('white-content');
+          blackDashboard.showSidebarMessage('Black theme activated...');
         }, 900);
-        white_color = false;
+        $white_color = false;
       } else {
-
         $('body').addClass('change-background');
         setTimeout(function() {
           $('body').removeClass('change-background');
           $('body').addClass('white-content');
+          blackDashboard.showSidebarMessage('White theme activated...');
         }, 900);
 
-        white_color = true;
+        $white_color = true;
       }
-
-
+      localStorage.setItem("theme_active", $white_color);
     });
+
 
     $('.light-badge').click(function() {
       $('body').addClass('white-content');

@@ -27,7 +27,7 @@ class ContentController extends RootAdminController
         if (config('app.seoLang')) {
             $lang = $params[0] ?? '';
             $alias = $params[1] ?? '';
-            sc_lang_switch($lang);
+            bc_lang_switch($lang);
         } else {
             $alias = $params[0] ?? '';
         }
@@ -57,11 +57,11 @@ class ContentController extends RootAdminController
                     )
                 );
             } else {
-                return view('templates.' . sc_store('template') . '.notfound',
+                return view('templates.' . bc_store('template') . '.notfound',
                     array(
                         'title' => trans('front.item_not_found_title'),
                         'description' => '',
-                        'keyword' => sc_store('keyword'),
+                        'keyword' => bc_store('keyword'),
                         'msg' => trans('front.item_not_found'),
                     )
                 );
@@ -79,7 +79,7 @@ class ContentController extends RootAdminController
         if (config('app.seoLang')) {
             $lang = $params[0] ?? '';
             $alias = $params[1] ?? '';
-            sc_lang_switch($lang);
+            bc_lang_switch($lang);
         } else {
             $alias = $params[0] ?? '';
         }
@@ -109,11 +109,11 @@ class ContentController extends RootAdminController
                 )
             );
         } else {
-            return view('templates.' . sc_store('template') . '.notfound',
+            return view('templates.' . bc_store('template') . '.notfound',
                 array(
                     'title' => trans('front.item_not_found_title'),
                     'description' => '',
-                    'keyword' => sc_store('keyword'),
+                    'keyword' => bc_store('keyword'),
                     'msg' => trans('front.item_not_found'),
                 )
             );

@@ -2,7 +2,7 @@
 /**
  * Route front
  */
-if(sc_config('Discount')) {
+if(bc_config('Discount')) {
 Route::group(
     [
         'prefix'    => 'plugin/discount',
@@ -21,8 +21,8 @@ Route::group(
  */
 Route::group(
     [
-        'prefix' => SC_ADMIN_PREFIX.'/shop_discount',
-        'middleware' => SC_ADMIN_MIDDLEWARE,
+        'prefix' => BC_ADMIN_PREFIX.'/shop_discount',
+        'middleware' => BC_ADMIN_MIDDLEWARE,
         'namespace' => 'App\Plugins\Total\Discount\Admin',
     ], 
     function () {

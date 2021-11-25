@@ -9,9 +9,9 @@ use Illuminate\Support\Facades\Schema;
 class PluginModel extends Model
 {
     public $timestamps = false;
-    public $table = SC_DB_PREFIX.'shop_shipping_standard';
+    public $table = BC_DB_PREFIX.'shop_shipping_standard';
     protected $guarded = [];
-    protected $connection = SC_CONNECTION;
+    protected $connection = BC_CONNECTION;
     public function uninstallExtension()
     {
         if (Schema::hasTable($this->table)) {

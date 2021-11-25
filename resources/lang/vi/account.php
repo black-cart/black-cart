@@ -18,6 +18,7 @@ return [
     'change_infomation'       => 'Thay đổi thông tin',
     'update_infomation'       => 'Cập nhật thông tin',
     'update_success'          => 'Cập nhật thông tin thành công!',
+    'update_failed'          => 'Cập nhật thông tin thất bại!',
     'password_old'            => 'Mật khẩu hiện tại',
     'password_new'            => 'Mật khẩu mới',
     'password'                => 'Mật khẩu',

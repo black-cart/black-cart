@@ -17,7 +17,7 @@ class CreateTablesShop extends Migration
         //Drop table if exist
         $this->down();
 
-        Schema::create(SC_DB_PREFIX.'shop_banner', function (Blueprint $table) {
+        Schema::create(BC_DB_PREFIX.'shop_banner', function (Blueprint $table) {
             $table->increments('id');
             $table->string('title', 255)->nullable();
             $table->string('image', 255)->nullable();
@@ -33,7 +33,7 @@ class CreateTablesShop extends Migration
             }
         );
 
-        Schema::create(SC_DB_PREFIX.'shop_banner_type', function (Blueprint $table) {
+        Schema::create(BC_DB_PREFIX.'shop_banner_type', function (Blueprint $table) {
             $table->increments('id');
             $table->string('code', 100)->unique();
             $table->string('name', 100);
@@ -42,7 +42,7 @@ class CreateTablesShop extends Migration
         );
         
 
-        Schema::create(SC_DB_PREFIX.'shop_email_template', function (Blueprint $table) {
+        Schema::create(BC_DB_PREFIX.'shop_email_template', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name', 50);
             $table->string('group', 50);
@@ -52,7 +52,7 @@ class CreateTablesShop extends Migration
             }
         );
 
-        Schema::create(SC_DB_PREFIX.'shop_language', function (Blueprint $table) {
+        Schema::create(BC_DB_PREFIX.'shop_language', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name', 100);
             $table->string('code', 50)->unique();
@@ -63,7 +63,7 @@ class CreateTablesShop extends Migration
             }
         );
 
-        Schema::create(SC_DB_PREFIX.'shop_store_block', function (Blueprint $table) {
+        Schema::create(BC_DB_PREFIX.'shop_store_block', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name', 100);
             $table->string('position', 100);
@@ -76,21 +76,21 @@ class CreateTablesShop extends Migration
             }
         );
 
-        Schema::create(SC_DB_PREFIX.'shop_layout_page', function (Blueprint $table) {
+        Schema::create(BC_DB_PREFIX.'shop_layout_page', function (Blueprint $table) {
             $table->increments('id');
             $table->string('key', 100)->unique();
             $table->string('name', 100);
             }
         );
 
-        Schema::create(SC_DB_PREFIX.'shop_layout_position', function (Blueprint $table) {
+        Schema::create(BC_DB_PREFIX.'shop_layout_position', function (Blueprint $table) {
             $table->increments('id');
             $table->string('key', 100)->unique();
             $table->string('name', 100);
             }
         );
 
-        Schema::create(SC_DB_PREFIX.'shop_link', function (Blueprint $table) {
+        Schema::create(BC_DB_PREFIX.'shop_link', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name', 100);
             $table->string('url', 100);
@@ -103,7 +103,7 @@ class CreateTablesShop extends Migration
             }
         );
 
-        Schema::create(SC_DB_PREFIX.'shop_password_resets', function (Blueprint $table) {
+        Schema::create(BC_DB_PREFIX.'shop_password_resets', function (Blueprint $table) {
             $table->string('email', 150);
             $table->string('token', 255);
             $table->dateTime('created_at');
@@ -111,14 +111,14 @@ class CreateTablesShop extends Migration
             }
         );
 
-        Schema::create(SC_DB_PREFIX.'shop_shipping_standard', function (Blueprint $table) {
+        Schema::create(BC_DB_PREFIX.'shop_shipping_standard', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('fee');
             $table->integer('shipping_free');
             }
         );
 
-        Schema::create(SC_DB_PREFIX.'shop_brand', function (Blueprint $table) {
+        Schema::create(BC_DB_PREFIX.'shop_brand', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name', 100);
             $table->string('alias', 120)->index();
@@ -129,7 +129,7 @@ class CreateTablesShop extends Migration
             }
         );
 
-        Schema::create(SC_DB_PREFIX.'shop_category', function (Blueprint $table) {
+        Schema::create(BC_DB_PREFIX.'shop_category', function (Blueprint $table) {
             $table->increments('id');
             $table->string('image', 255)->nullable();
             $table->string('alias', 120)->index();
@@ -140,7 +140,7 @@ class CreateTablesShop extends Migration
             }
         );
 
-        Schema::create(SC_DB_PREFIX.'shop_category_description', function (Blueprint $table) {
+        Schema::create(BC_DB_PREFIX.'shop_category_description', function (Blueprint $table) {
             $table->integer('category_id');
             $table->string('lang', 10)->index();
             $table->string('title', 200)->nullable();
@@ -150,7 +150,7 @@ class CreateTablesShop extends Migration
             }
         );
 
-        Schema::create(SC_DB_PREFIX.'shop_currency', function (Blueprint $table) {
+        Schema::create(BC_DB_PREFIX.'shop_currency', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name', 100);
             $table->string('code', 10)->unique();
@@ -164,7 +164,7 @@ class CreateTablesShop extends Migration
             }
         );
 
-        Schema::create(SC_DB_PREFIX.'shop_order', function (Blueprint $table) {
+        Schema::create(BC_DB_PREFIX.'shop_order', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('customer_id')->index();
             $table->string('domain')->nullable();
@@ -202,7 +202,7 @@ class CreateTablesShop extends Migration
             }
         );
 
-        Schema::create(SC_DB_PREFIX.'shop_order_detail', function (Blueprint $table) {
+        Schema::create(BC_DB_PREFIX.'shop_order_detail', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('order_id');
             $table->integer('product_id');
@@ -220,7 +220,7 @@ class CreateTablesShop extends Migration
             }
         );
 
-        Schema::create(SC_DB_PREFIX.'shop_order_history', function (Blueprint $table) {
+        Schema::create(BC_DB_PREFIX.'shop_order_history', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('order_id');
             $table->string('content', 300);
@@ -231,14 +231,14 @@ class CreateTablesShop extends Migration
             }
         );
 
-        Schema::create(SC_DB_PREFIX.'shop_order_status', function (Blueprint $table) {
+        Schema::create(BC_DB_PREFIX.'shop_order_status', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name', 100);
 
             }
         );
 
-        Schema::create(SC_DB_PREFIX.'shop_order_total', function (Blueprint $table) {
+        Schema::create(BC_DB_PREFIX.'shop_order_total', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('order_id');
             $table->string('title', 100);
@@ -250,7 +250,7 @@ class CreateTablesShop extends Migration
             }
         );
 
-        Schema::create(SC_DB_PREFIX.'shop_page', function (Blueprint $table) {
+        Schema::create(BC_DB_PREFIX.'shop_page', function (Blueprint $table) {
             $table->increments('id');
             $table->string('image', 255)->nullable();
             $table->string('alias', 120)->index();
@@ -259,7 +259,7 @@ class CreateTablesShop extends Migration
             }
         );
 
-        Schema::create(SC_DB_PREFIX.'shop_page_description', function (Blueprint $table) {
+        Schema::create(BC_DB_PREFIX.'shop_page_description', function (Blueprint $table) {
             $table->integer('page_id');
             $table->string('lang', 10)->index();
             $table->string('title', 200)->nullable();
@@ -270,14 +270,14 @@ class CreateTablesShop extends Migration
             }
         );
 
-        Schema::create(SC_DB_PREFIX.'shop_payment_status', function (Blueprint $table) {
+        Schema::create(BC_DB_PREFIX.'shop_payment_status', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name', 100);
 
             }
         );
 
-        Schema::create(SC_DB_PREFIX.'shop_product', function (Blueprint $table) {
+        Schema::create(BC_DB_PREFIX.'shop_product', function (Blueprint $table) {
             $table->increments('id');
             $table->string('sku', 50)->index();
             $table->string('upc', 20)->nullable()->comment('upc code');
@@ -314,7 +314,7 @@ class CreateTablesShop extends Migration
             }
         );
 
-        Schema::create(SC_DB_PREFIX.'shop_product_description', function (Blueprint $table) {
+        Schema::create(BC_DB_PREFIX.'shop_product_description', function (Blueprint $table) {
             $table->integer('product_id');
             $table->string('lang', 10)->index();
             $table->string('name', 200)->nullable();
@@ -325,45 +325,56 @@ class CreateTablesShop extends Migration
             }
         );
 
-        Schema::create(SC_DB_PREFIX.'shop_product_image', function (Blueprint $table) {
+        Schema::create(BC_DB_PREFIX.'shop_product_image', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('image', 255);
+            $table->texxt('image');
             $table->integer('product_id')->default(0)->index();
+            $table->enum('type_show', ['default', 'threesixty'])->default('default');
             }
         );
 
-        Schema::create(SC_DB_PREFIX.'shop_product_build', function (Blueprint $table) {
+        Schema::create(BC_DB_PREFIX.'shop_product_build', function (Blueprint $table) {
             $table->integer('build_id');
-            $table->integer('product_id');
-            $table->integer('quantity');
-            $table->primary(['build_id', 'product_id']);
+            $table->integer('product_id')->nullable();
+            $table->string('spot_type',50);
+            $table->string('spot_size',50);
+            $table->string('spot_color',50);
+            $table->string('spot_tooltip_width',50);
+            $table->string('spot_tooltip_width_auto',50);
+            $table->string('spot_popup_position',50);
+            $table->string('sopt_tooltip_visible',50);
+            $table->string('spot_content_type',50);
+            $table->text('spot_content')->nullable();
+            $table->text('spot_inset')->nullable();
+            $table->primary('build_id',50);
             }
         );
 
-        Schema::create(SC_DB_PREFIX.'shop_product_group', function (Blueprint $table) {
+        Schema::create(BC_DB_PREFIX.'shop_product_group', function (Blueprint $table) {
             $table->integer('group_id');
             $table->integer('product_id');
             $table->primary(['group_id', 'product_id']);
             }
         );
 
-        Schema::create(SC_DB_PREFIX.'shop_product_category', function (Blueprint $table) {
+        Schema::create(BC_DB_PREFIX.'shop_product_category', function (Blueprint $table) {
             $table->integer('product_id');
             $table->integer('category_id');
             $table->primary(['product_id', 'category_id']);
             }
         );
 
-        Schema::create(SC_DB_PREFIX.'shop_attribute_group', function (Blueprint $table) {
+        Schema::create(BC_DB_PREFIX.'shop_attribute_group', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name', 100);
             $table->tinyInteger('status')->default(0);
             $table->integer('sort')->default(0);
             $table->string('type', 50)->comment('radio,select,checkbox');
+            $table->integer('picker')->default(0);
             }
         );
 
-        Schema::create(SC_DB_PREFIX.'shop_product_attribute', function (Blueprint $table) {
+        Schema::create(BC_DB_PREFIX.'shop_product_attribute', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name', 100);
             $table->integer('attribute_group_id');
@@ -371,11 +382,14 @@ class CreateTablesShop extends Migration
             $table->integer('add_price')->default(0);
             $table->integer('sort')->default(0);
             $table->tinyInteger('status')->default(1);
+            $table->text('code')->nullable();
+            $table->text('images')->nullable();
+            $table->enum('type_show', ['default', 'threesixty'])->default('default');
             $table->index(['product_id', 'attribute_group_id']);
             }
         );
 
-        Schema::create(SC_DB_PREFIX.'shop_product_property', function (Blueprint $table) {
+        Schema::create(BC_DB_PREFIX.'shop_product_property', function (Blueprint $table) {
             $table->increments('id');
             $table->string('code', 100)->unique();
             $table->string('name', 100);
@@ -383,14 +397,14 @@ class CreateTablesShop extends Migration
             }
         );
 
-        Schema::create(SC_DB_PREFIX.'shop_shipping_status', function (Blueprint $table) {
+        Schema::create(BC_DB_PREFIX.'shop_shipping_status', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name', 100);
 
             }
         );
 
-        Schema::create(SC_DB_PREFIX.'shop_shoppingcart', function (Blueprint $table) {
+        Schema::create(BC_DB_PREFIX.'shop_shoppingcart', function (Blueprint $table) {
             $table->string('identifier', 100);
             $table->string('instance', 100);
             $table->text('content');
@@ -400,7 +414,7 @@ class CreateTablesShop extends Migration
             }
         );
 
-        Schema::create(SC_DB_PREFIX.'shop_customer', function (Blueprint $table) {
+        Schema::create(BC_DB_PREFIX.'shop_customer', function (Blueprint $table) {
             $table->increments('id');
             $table->string('first_name', 100);
             $table->string('last_name', 100)->nullable();
@@ -431,7 +445,7 @@ class CreateTablesShop extends Migration
             }
         );
 
-        Schema::create(SC_DB_PREFIX.'shop_customer_address', function (Blueprint $table) {
+        Schema::create(BC_DB_PREFIX.'shop_customer_address', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('customer_id')->index();
             $table->string('first_name', 100);
@@ -448,7 +462,7 @@ class CreateTablesShop extends Migration
         );
 
 
-        Schema::create(SC_DB_PREFIX.'shop_supplier', function (Blueprint $table) {
+        Schema::create(BC_DB_PREFIX.'shop_supplier', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name', 100);
             $table->string('alias', 120)->index();
@@ -463,7 +477,7 @@ class CreateTablesShop extends Migration
             }
         );
 
-        Schema::create(SC_DB_PREFIX.'shop_subscribe', function (Blueprint $table) {
+        Schema::create(BC_DB_PREFIX.'shop_subscribe', function (Blueprint $table) {
             $table->increments('id');
             $table->string('email', 120)->index();
             $table->string('phone', 20)->nullable();
@@ -474,14 +488,14 @@ class CreateTablesShop extends Migration
             }
         );
 
-        Schema::create(SC_DB_PREFIX.'shop_country', function (Blueprint $table) {
+        Schema::create(BC_DB_PREFIX.'shop_country', function (Blueprint $table) {
             $table->increments('id');
             $table->string('code', 10)->unique();
             $table->string('name', 100);
             }
         );
         
-        Schema::create(SC_DB_PREFIX.'shop_news', function (Blueprint $table) {
+        Schema::create(BC_DB_PREFIX.'shop_news', function (Blueprint $table) {
             $table->increments('id');
             $table->string('image', 200)->nullable();
             $table->string('alias', 120)->index();
@@ -493,7 +507,7 @@ class CreateTablesShop extends Migration
             }
         );
 
-        Schema::create(SC_DB_PREFIX.'shop_news_description', function (Blueprint $table) {
+        Schema::create(BC_DB_PREFIX.'shop_news_description', function (Blueprint $table) {
             $table->integer('news_id');
             $table->string('lang', 10);
             $table->string('title', 200)->nullable();
@@ -504,7 +518,7 @@ class CreateTablesShop extends Migration
             }
         );
 
-        Schema::create(SC_DB_PREFIX.'shop_sessions', function ($table) {
+        Schema::create(BC_DB_PREFIX.'shop_sessions', function ($table) {
             $table->string('id',100)->unique();
             $table->unsignedInteger('customer_id')->nullable();
             $table->string('ip_address', 45)->nullable();
@@ -567,7 +581,7 @@ class CreateTablesShop extends Migration
         );
 
 
-        Schema::create(SC_DB_PREFIX.'api_connection', function (Blueprint $table) {
+        Schema::create(BC_DB_PREFIX.'api_connection', function (Blueprint $table) {
             $table->increments('id');
             $table->string('description', 255);
             $table->string('apiconnection', 50)->unique();
@@ -578,14 +592,14 @@ class CreateTablesShop extends Migration
             }
         );
 
-        Schema::create(SC_DB_PREFIX.'shop_tax', function (Blueprint $table) {
+        Schema::create(BC_DB_PREFIX.'shop_tax', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name', 100);
             $table->integer('value')->default(0);
             }
         );
 
-        Schema::create(SC_DB_PREFIX.'shop_weight', function (Blueprint $table) {
+        Schema::create(BC_DB_PREFIX.'shop_weight', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name', 50)->unique();
             $table->string('description', 100);
@@ -593,7 +607,7 @@ class CreateTablesShop extends Migration
             }
         );
 
-        Schema::create(SC_DB_PREFIX.'shop_length', function (Blueprint $table) {
+        Schema::create(BC_DB_PREFIX.'shop_length', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name', 50)->unique();
             $table->string('description', 100);
@@ -623,13 +637,13 @@ class CreateTablesShop extends Migration
             }
         );
 
-        Schema::create(SC_DB_PREFIX.'shop_store_css', function (Blueprint $table) {
+        Schema::create(BC_DB_PREFIX.'shop_store_css', function (Blueprint $table) {
             $table->text('css');
             $table->integer('store_id')->unique();
             }
         );
 
-        Schema::create(SC_DB_PREFIX.'shop_product_promotion', function (Blueprint $table) {
+        Schema::create(BC_DB_PREFIX.'shop_product_promotion', function (Blueprint $table) {
             $table->integer('product_id')->primary();
             $table->integer('price_promotion');
             $table->dateTime('date_start')->nullable();
@@ -639,7 +653,7 @@ class CreateTablesShop extends Migration
             }
         );
 
-        Schema::create(SC_DB_PREFIX.'shop_product_download', function (Blueprint $table) {
+        Schema::create(BC_DB_PREFIX.'shop_product_download', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('product_id');
             $table->string('path', 255);
@@ -647,7 +661,7 @@ class CreateTablesShop extends Migration
             }
         );
 
-        Schema::create(SC_DB_PREFIX.'shop_custom_field', function (Blueprint $table) {
+        Schema::create(BC_DB_PREFIX.'shop_custom_field', function (Blueprint $table) {
             $table->increments('id');
             $table->string('type', 50)->index()->comment('product, customer');
             $table->string('code', 100)->index();
@@ -659,7 +673,7 @@ class CreateTablesShop extends Migration
             }
         );
 
-        Schema::create(SC_DB_PREFIX.'shop_custom_field_detail', function (Blueprint $table) {
+        Schema::create(BC_DB_PREFIX.'shop_custom_field_detail', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('custom_field_id')->index();
             $table->integer('rel_id')->index();
@@ -676,54 +690,54 @@ class CreateTablesShop extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists(SC_DB_PREFIX.'shop_banner');
-        Schema::dropIfExists(SC_DB_PREFIX.'shop_banner_type');
-        Schema::dropIfExists(SC_DB_PREFIX.'shop_email_template');
-        Schema::dropIfExists(SC_DB_PREFIX.'shop_language');
-        Schema::dropIfExists(SC_DB_PREFIX.'shop_store_block');
-        Schema::dropIfExists(SC_DB_PREFIX.'shop_layout_page');
-        Schema::dropIfExists(SC_DB_PREFIX.'shop_layout_position');
-        Schema::dropIfExists(SC_DB_PREFIX.'shop_link');
-        Schema::dropIfExists(SC_DB_PREFIX.'shop_password_resets');
-        Schema::dropIfExists(SC_DB_PREFIX.'shop_shipping_standard');
-        Schema::dropIfExists(SC_DB_PREFIX.'shop_api');
-        Schema::dropIfExists(SC_DB_PREFIX.'shop_api_process');
-        Schema::dropIfExists(SC_DB_PREFIX.'shop_brand');
-        Schema::dropIfExists(SC_DB_PREFIX.'shop_category');
-        Schema::dropIfExists(SC_DB_PREFIX.'shop_category_description');
-        Schema::dropIfExists(SC_DB_PREFIX.'shop_currency');
-        Schema::dropIfExists(SC_DB_PREFIX.'shop_order');
-        Schema::dropIfExists(SC_DB_PREFIX.'shop_order_detail');
-        Schema::dropIfExists(SC_DB_PREFIX.'shop_order_history');
-        Schema::dropIfExists(SC_DB_PREFIX.'shop_order_status');
-        Schema::dropIfExists(SC_DB_PREFIX.'shop_order_total');
-        Schema::dropIfExists(SC_DB_PREFIX.'shop_page');
-        Schema::dropIfExists(SC_DB_PREFIX.'shop_page_description');
-        Schema::dropIfExists(SC_DB_PREFIX.'shop_payment_status');
-        Schema::dropIfExists(SC_DB_PREFIX.'shop_product');
-        Schema::dropIfExists(SC_DB_PREFIX.'shop_product_description');
-        Schema::dropIfExists(SC_DB_PREFIX.'shop_product_image');
-        Schema::dropIfExists(SC_DB_PREFIX.'shop_product_build');
-        Schema::dropIfExists(SC_DB_PREFIX.'shop_product_attribute');
-        Schema::dropIfExists(SC_DB_PREFIX.'shop_product_property');
-        Schema::dropIfExists(SC_DB_PREFIX.'shop_attribute_group');
-        Schema::dropIfExists(SC_DB_PREFIX.'shop_product_group');
-        Schema::dropIfExists(SC_DB_PREFIX.'shop_product_category');
-        Schema::dropIfExists(SC_DB_PREFIX.'shop_shipping_status');
-        Schema::dropIfExists(SC_DB_PREFIX.'shop_shoppingcart');
-        Schema::dropIfExists(SC_DB_PREFIX.'shop_product_promotion');
-        Schema::dropIfExists(SC_DB_PREFIX.'shop_customer');
-        Schema::dropIfExists(SC_DB_PREFIX.'shop_supplier');
-        Schema::dropIfExists(SC_DB_PREFIX.'shop_customer_address');
-        Schema::dropIfExists(SC_DB_PREFIX.'shop_subscribe');
-        Schema::dropIfExists(SC_DB_PREFIX.'shop_country');
-        Schema::dropIfExists(SC_DB_PREFIX.'shop_news');
-        Schema::dropIfExists(SC_DB_PREFIX.'shop_news_description');
-        Schema::dropIfExists(SC_DB_PREFIX.'shop_sessions');
-        Schema::dropIfExists(SC_DB_PREFIX.'shop_tax');
-        Schema::dropIfExists(SC_DB_PREFIX.'shop_weight');
-        Schema::dropIfExists(SC_DB_PREFIX.'shop_length');
-        Schema::dropIfExists(SC_DB_PREFIX.'shop_product_download');
+        Schema::dropIfExists(BC_DB_PREFIX.'shop_banner');
+        Schema::dropIfExists(BC_DB_PREFIX.'shop_banner_type');
+        Schema::dropIfExists(BC_DB_PREFIX.'shop_email_template');
+        Schema::dropIfExists(BC_DB_PREFIX.'shop_language');
+        Schema::dropIfExists(BC_DB_PREFIX.'shop_store_block');
+        Schema::dropIfExists(BC_DB_PREFIX.'shop_layout_page');
+        Schema::dropIfExists(BC_DB_PREFIX.'shop_layout_position');
+        Schema::dropIfExists(BC_DB_PREFIX.'shop_link');
+        Schema::dropIfExists(BC_DB_PREFIX.'shop_password_resets');
+        Schema::dropIfExists(BC_DB_PREFIX.'shop_shipping_standard');
+        Schema::dropIfExists(BC_DB_PREFIX.'shop_api');
+        Schema::dropIfExists(BC_DB_PREFIX.'shop_api_process');
+        Schema::dropIfExists(BC_DB_PREFIX.'shop_brand');
+        Schema::dropIfExists(BC_DB_PREFIX.'shop_category');
+        Schema::dropIfExists(BC_DB_PREFIX.'shop_category_description');
+        Schema::dropIfExists(BC_DB_PREFIX.'shop_currency');
+        Schema::dropIfExists(BC_DB_PREFIX.'shop_order');
+        Schema::dropIfExists(BC_DB_PREFIX.'shop_order_detail');
+        Schema::dropIfExists(BC_DB_PREFIX.'shop_order_history');
+        Schema::dropIfExists(BC_DB_PREFIX.'shop_order_status');
+        Schema::dropIfExists(BC_DB_PREFIX.'shop_order_total');
+        Schema::dropIfExists(BC_DB_PREFIX.'shop_page');
+        Schema::dropIfExists(BC_DB_PREFIX.'shop_page_description');
+        Schema::dropIfExists(BC_DB_PREFIX.'shop_payment_status');
+        Schema::dropIfExists(BC_DB_PREFIX.'shop_product');
+        Schema::dropIfExists(BC_DB_PREFIX.'shop_product_description');
+        Schema::dropIfExists(BC_DB_PREFIX.'shop_product_image');
+        Schema::dropIfExists(BC_DB_PREFIX.'shop_product_build');
+        Schema::dropIfExists(BC_DB_PREFIX.'shop_product_attribute');
+        Schema::dropIfExists(BC_DB_PREFIX.'shop_product_property');
+        Schema::dropIfExists(BC_DB_PREFIX.'shop_attribute_group');
+        Schema::dropIfExists(BC_DB_PREFIX.'shop_product_group');
+        Schema::dropIfExists(BC_DB_PREFIX.'shop_product_category');
+        Schema::dropIfExists(BC_DB_PREFIX.'shop_shipping_status');
+        Schema::dropIfExists(BC_DB_PREFIX.'shop_shoppingcart');
+        Schema::dropIfExists(BC_DB_PREFIX.'shop_product_promotion');
+        Schema::dropIfExists(BC_DB_PREFIX.'shop_customer');
+        Schema::dropIfExists(BC_DB_PREFIX.'shop_supplier');
+        Schema::dropIfExists(BC_DB_PREFIX.'shop_customer_address');
+        Schema::dropIfExists(BC_DB_PREFIX.'shop_subscribe');
+        Schema::dropIfExists(BC_DB_PREFIX.'shop_country');
+        Schema::dropIfExists(BC_DB_PREFIX.'shop_news');
+        Schema::dropIfExists(BC_DB_PREFIX.'shop_news_description');
+        Schema::dropIfExists(BC_DB_PREFIX.'shop_sessions');
+        Schema::dropIfExists(BC_DB_PREFIX.'shop_tax');
+        Schema::dropIfExists(BC_DB_PREFIX.'shop_weight');
+        Schema::dropIfExists(BC_DB_PREFIX.'shop_length');
+        Schema::dropIfExists(BC_DB_PREFIX.'shop_product_download');
         //Passport
         Schema::dropIfExists('oauth_auth_codes');
         Schema::dropIfExists('oauth_access_tokens');
@@ -731,14 +745,14 @@ class CreateTablesShop extends Migration
         Schema::dropIfExists('oauth_clients');
         Schema::dropIfExists('oauth_personal_access_clients');
         //Api connection
-        Schema::dropIfExists(SC_DB_PREFIX.'api_connection');
+        Schema::dropIfExists(BC_DB_PREFIX.'api_connection');
         //Job
         Schema::dropIfExists('jobs');
         Schema::dropIfExists('failed_jobs');
-        Schema::dropIfExists(SC_DB_PREFIX.'shop_store_css');
+        Schema::dropIfExists(BC_DB_PREFIX.'shop_store_css');
         //Custom field
-        Schema::dropIfExists(SC_DB_PREFIX.'shop_custom_field');
-        Schema::dropIfExists(SC_DB_PREFIX.'shop_custom_field_detail');
+        Schema::dropIfExists(BC_DB_PREFIX.'shop_custom_field');
+        Schema::dropIfExists(BC_DB_PREFIX.'shop_custom_field_detail');
     }
 
 }

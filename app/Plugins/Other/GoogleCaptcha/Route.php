@@ -2,7 +2,7 @@
 /**
  * Route front
  */
-if(sc_config('GoogleCaptcha')) {
+if(bc_config('GoogleCaptcha')) {
 Route::group(
     [
         'prefix'    => 'plugin/googlecaptcha',
@@ -19,8 +19,8 @@ Route::group(
  */
 Route::group(
     [
-        'prefix' => SC_ADMIN_PREFIX.'/googlecaptcha',
-        'middleware' => SC_ADMIN_MIDDLEWARE,
+        'prefix' => BC_DB_PREFIX.'/googlecaptcha',
+        'middleware' => BC_ADMIN_MIDDLEWARE,
         'namespace' => 'App\Plugins\Other\GoogleCaptcha\Admin',
     ], 
     function () {

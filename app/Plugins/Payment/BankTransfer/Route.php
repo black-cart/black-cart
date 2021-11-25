@@ -4,8 +4,8 @@
  */
 Route::group(
     [
-        'prefix' => SC_ADMIN_PREFIX.'/bank_transfer',
-        'middleware' => SC_ADMIN_MIDDLEWARE,
+        'prefix' => BC_DB_PREFIX.'/bank_transfer',
+        'middleware' => BC_ADMIN_MIDDLEWARE,
         'namespace' => 'App\Plugins\Payment\BankTransfer\Admin',
     ], 
     function () {

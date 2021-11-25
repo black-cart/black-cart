@@ -15,7 +15,7 @@ class DataStoreSeeder extends Seeder
     public function run()
     {
         $storeId = empty(session('lastStoreId')) ? 1 : session('lastStoreId');
-        DB::connection(SC_CONNECTION)->table(SC_DB_PREFIX.'admin_config')->insertOrIgnore(
+        DB::connection(BC_CONNECTION)->table(BC_DB_PREFIX.'admin_config')->insertOrIgnore(
             [
             ['group' => '', 'code' => 'product_config_attribute', 'key' => 'product_brand', 'value' => '1', 'sort' => '0', 'detail' => 'lang::product.config_manager.brand', 'store_id' => $storeId],
             ['group' => '', 'code' => 'product_config_attribute_required', 'key' => 'product_brand_required', 'value' => '0', 'sort' => '0', 'detail' => '', 'store_id' => $storeId],
@@ -134,7 +134,7 @@ class DataStoreSeeder extends Seeder
             ]
         );
 
-        DB::connection(SC_CONNECTION)->table(SC_DB_PREFIX . 'shop_email_template')->insert(
+        DB::connection(BC_CONNECTION)->table(BC_DB_PREFIX . 'shop_email_template')->insert(
           [
               ['name' => 'Reset password', 'group' => 'forgot_password', 'text' => '
 <h1 style="font-family:Avenir,Helvetica,sans-serif;box-sizing:border-box;color:#2f3133;font-size:19px;font-weight:bold;margin-top:0;text-align:left">{{$title}}</h1>
@@ -313,7 +313,7 @@ class DataStoreSeeder extends Seeder
       );
 
 
-        DB::connection(SC_CONNECTION)->table(SC_DB_PREFIX.'shop_store_css')->insertOrIgnore(
+        DB::connection(BC_CONNECTION)->table(BC_DB_PREFIX.'shop_store_css')->insertOrIgnore(
             [
                 [
                     'css' => '
@@ -426,7 +426,7 @@ img.new {
                 ]
             ]);
 
-            DB::connection(SC_CONNECTION)->table(SC_DB_PREFIX . 'shop_store_block')->insert(
+            DB::connection(BC_CONNECTION)->table(BC_DB_PREFIX . 'shop_store_block')->insert(
               [
                   ['name' => 'Facebook code', 'position' => 'top', 'page' => '*', 'type' => 'html', 'text' => '
   <div id="fb-root"></div>

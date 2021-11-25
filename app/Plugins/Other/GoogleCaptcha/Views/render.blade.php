@@ -10,7 +10,7 @@
 </span>
 @endif
 <button class="g-recaptcha button" 
-        data-sitekey="{{ sc_config('GoogleCaptcha_site_key') }}" 
+        data-sitekey="{{ bc_config('GoogleCaptcha_site_key') }}" 
         data-callback='onSubmit' 
         data-action='submit'>{{ $titleButton ?? trans('front.captcha_action.submit') }}</button>
 <script>

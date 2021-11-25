@@ -2,6 +2,7 @@ var lfm_route = location.origin + location.pathname;
 var show_list;
 var sort_type = 'alphabetic';
 var multi_selection_enabled = false;
+var all_selection_enabled = false;
 var selected = [];
 var items = [];
 
@@ -104,7 +105,36 @@ $('#multi_selection_toggle').click(function () {
     .toggleClass('fa-check-double', !multi_selection_enabled);
 
   if (!multi_selection_enabled) {
+    $('#multi_selection_all i')
+    .toggleClass('fas', multi_selection_enabled);
+    all_selection_enabled = false;
     clearSelected();
+  }
+});
+
+$('#multi_selection_all').click(function () {
+  all_selection_enabled = !all_selection_enabled;
+  multi_selection_enabled = !multi_selection_enabled;
+
+  $('#multi_selection_all i')
+    .toggleClass('fas', all_selection_enabled);
+
+  $('#multi_selection_toggle i')
+    .toggleClass('fa-times', all_selection_enabled)
+    .toggleClass('fa-check-double', !all_selection_enabled);
+
+  if (all_selection_enabled == false) {
+    $('#multi_selection_all i')
+      .toggleClass('fas', all_selection_enabled);
+
+    $('#multi_selection_toggle i')
+    .toggleClass('fa-times', all_selection_enabled)
+    .toggleClass('fa-check-double', !all_selection_enabled);
+
+    clearSelected();
+  }else{
+    selected = [];
+    SelectedAll();
   }
 });
 
@@ -168,6 +198,21 @@ function toggleSelected (e) {
   updateSelectedStyle();
 }
 
+function SelectedAll () {
+  if (!multi_selection_enabled) {
+    selected = [];
+  }
+
+  var sequence = $('#content').children('a');
+  $.each(sequence, function(index, val) {    
+    selected.push($(val).data('id'));
+  });
+  // selected.sort(function(a, b) {
+  //   return a - b;
+  // });
+  updateSelectedStyle();
+}
+
 function clearSelected () {
   selected = [];
 
@@ -217,6 +262,7 @@ function toggleActions() {
   $('[data-action=trash]').toggleClass('d-none', !many_selected);
   $('[data-action=open]').toggleClass('d-none', !one_selected || only_file);
   $('#multi_selection_toggle').toggleClass('d-none', usingWysiwygEditor() || !many_selected);
+  $('#multi_selection_all').toggleClass('d-none',usingWysiwygEditor() || !(only_image && many_selected));
   $('#actions').toggleClass('d-none', selected.length === 0);
   $('#fab').toggleClass('d-none', selected.length !== 0);
 }
@@ -732,7 +778,7 @@ function use(items) {
   } else if (callback && window[callback]) {
     window[callback](getSelectedItems());
   } else if (callback && parent[callback]) {
-    parent[callback](getSelecteditems());
+    parent[callback](getSelectedItems());
   } else if (window.opener) { // standalone button or other situations
     window.opener.SetUrl(getSelectedItems());
   } else {

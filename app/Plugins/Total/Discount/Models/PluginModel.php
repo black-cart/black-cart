@@ -9,9 +9,9 @@ use Illuminate\Support\Facades\Schema;
 class PluginModel extends Model
 {
     public $timestamps    = false;
-    public $table = SC_DB_PREFIX.'shop_discount';
-    public $table_related = SC_DB_PREFIX.'shop_discount_customer';
-    protected $connection = SC_CONNECTION;
+    public $table = BC_DB_PREFIX.'shop_discount';
+    public $table_related = BC_DB_PREFIX.'shop_discount_customer';
+    protected $connection = BC_CONNECTION;
     protected $guarded    = [];
     protected $dates      = ['expires_at'];
 
@@ -106,7 +106,7 @@ class PluginModel extends Model
      * @return  [type]         [return description]
      */
     public function getPromotionByCode($code) {
-        if (config('app.storeId') == SC_ID_ROOT) {
+        if (config('app.storeId') == BC_ID_ROOT) {
             //If store is primary store, dont check store id
             $promocode = $this
                 ->where('code', $code)

@@ -10,9 +10,9 @@ use Illuminate\Support\Facades\Schema;
 class CmsImage extends Model
 {
     public $timestamps  = false;
-    public $table = SC_DB_PREFIX.'cms_image';
+    public $table = BC_DB_PREFIX.'cms_image';
     protected $fillable = ['id', 'image', 'content_id', 'status'];
-    protected $connection = SC_CONNECTION;
+    protected $connection = BC_CONNECTION;
     public function content()
     {
         return $this->belongsTo(CmsContent::class, 'content_id', 'id');

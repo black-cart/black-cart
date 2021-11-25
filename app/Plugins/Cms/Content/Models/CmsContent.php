@@ -14,11 +14,11 @@ class CmsContent extends Model
 {
     use ModelTrait;
 
-    public $table = SC_DB_PREFIX.'cms_content';
+    public $table = BC_DB_PREFIX.'cms_content';
     protected $guarded = [];
-    protected $connection = SC_CONNECTION;
+    protected $connection = BC_CONNECTION;
 
-    protected  $sc_category = []; 
+    protected  $bc_category = []; 
 
     public function category()
     {
@@ -50,7 +50,7 @@ class CmsContent extends Model
     */
     public function getThumb()
     {
-        return sc_image_get_path_thumb($this->image);
+        return bc_image_get_path_thumb($this->image);
     }
 
     /*
@@ -58,7 +58,7 @@ class CmsContent extends Model
     */
     public function getImage()
     {
-        return sc_image_get_path($this->image);
+        return bc_image_get_path($this->image);
 
     }
 
@@ -68,7 +68,7 @@ class CmsContent extends Model
      */
     public function getUrl()
     {
-        return sc_route('cms.content', ['alias' => $this->alias]);
+        return bc_route('cms.content', ['alias' => $this->alias]);
     }
 
     //Scort
@@ -94,7 +94,7 @@ class CmsContent extends Model
 
         $content = $this
             ->leftJoin($tableDescription, $tableDescription . '.content_id', $this->getTable() . '.id')
-            ->where($tableDescription . '.lang', sc_get_locale());
+            ->where($tableDescription . '.lang', bc_get_locale());
 
         if ($type == null) {
             $content = $content->where('id', (int) $key);
@@ -177,14 +177,14 @@ class CmsContent extends Model
             $table->primary(['content_id', 'lang']);
         });
 
-        DB::connection(SC_CONNECTION)->table($this->table)->insert(
+        DB::connection(BC_CONNECTION)->table($this->table)->insert(
             [
                 ['id' => 1, 'alias' =>  'demo-alias-content-1', 'image' => '/data/cms-image/cms_content_1.jpg', 'category_id' => 1,  'sort' => 0, 'status' => '1', 'created_at' => date("Y-m-d"), 'store_id' => 1],                    
                 ['id' => 2, 'alias' =>  'demo-alias-content-2', 'image' => '/data/cms-image/cms_content_2.jpg', 'category_id' => 1,  'sort' => 0, 'status' => '1', 'created_at' => date("Y-m-d"), 'store_id' => 1],                    
             ]
         );
 
-        DB::connection(SC_CONNECTION)->table($this->table.'_description')->insert(
+        DB::connection(BC_CONNECTION)->table($this->table.'_description')->insert(
             [
                 ['content_id' => '1', 'lang' => 'en', 'title' => 'Demo cms content 1', 'keyword' => '', 'description' => '', 'content' => '<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<img alt="" src="/data/cms-image/cms.jpg" style="width: 262px; height: 262px; float: right; margin: 10px;" /></p>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>'],
@@ -216,9 +216,9 @@ class CmsContent extends Model
      */
     private function setCategory($category) {
         if (is_array($category)) {
-            $this->sc_category = $category;
+            $this->bc_category = $category;
         } else {
-            $this->sc_category = array((int)$category);
+            $this->bc_category = array((int)$category);
         }
         return $this;
     }
@@ -241,33 +241,33 @@ class CmsContent extends Model
         //description
         $query = $this
             ->leftJoin($tableDescription, $tableDescription . '.content_id', $this->getTable() . '.id')
-            ->where($tableDescription . '.lang', sc_get_locale());
+            ->where($tableDescription . '.lang', bc_get_locale());
         //search keyword
-        if ($this->sc_keyword !='') {
+        if ($this->bc_keyword !='') {
             $query = $query->where(function ($sql) use($tableDescription){
-                $sql->where($tableDescription . '.title', 'like', '%' . $this->sc_keyword . '%');
+                $sql->where($tableDescription . '.title', 'like', '%' . $this->bc_keyword . '%');
             });
         }
 
-        if (count($this->sc_category)) {
-            $query = $query->whereIn('category_id', $this->sc_category);
+        if (count($this->bc_category)) {
+            $query = $query->whereIn('category_id', $this->bc_category);
         }
 
         $query = $query->where('status', 1)
             ->where('store_id', config('app.storeId'));
 
-        if (count($this->sc_moreWhere)) {
-            foreach ($this->sc_moreWhere as $key => $where) {
+        if (count($this->bc_moreWhere)) {
+            foreach ($this->bc_moreWhere as $key => $where) {
                 if(count($where)) {
                     $query = $query->where($where[0], $where[1], $where[2]);
                 }
             }
         }
-        if ($this->sc_random) {
+        if ($this->bc_random) {
             $query = $query->inRandomOrder();
         } else {
-            if (is_array($this->sc_sort) && count($this->sc_sort)) {
-                foreach ($this->sc_sort as  $rowSort) {
+            if (is_array($this->bc_sort) && count($this->bc_sort)) {
+                foreach ($this->bc_sort as  $rowSort) {
                     if(is_array($rowSort) && count($rowSort) == 2) {
                         $query = $query->sort($rowSort[0], $rowSort[1]);
                     }

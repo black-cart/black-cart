@@ -1,4 +1,4 @@
-@extends($templatePathAdmin.'Layout.layout')
+@extends($templatePathAdmin.'Layout.main')
 
 @section('main')
       <div class="card card-primary card-outline card-outline-tabs">
@@ -13,7 +13,7 @@
 
                     <tr>
                       <td><i class="fas fa-university"></i> {{ trans($pathPlugin.'::Lang.info') }}</td>
-                      <td><a href="#" class="editable-required editable editable-click" data-name="BankTransfer_info" data-type="text" data-pk="" data-source="" data-url="{{ sc_route_admin('admin_config_global.update') }}" data-title="{{ trans($pathPlugin.'::Lang.info') }}" data-value="{{ sc_config_global('BankTransfer_info') }}" data-original-title="" title="">{{sc_config_global('BankTransfer_info') }}</a></td>
+                      <td><a href="#" class="editable-required editable editable-click" data-name="BankTransfer_info" data-type="text" data-pk="" data-source="" data-url="{{ bc_route_admin('admin_config_global.update') }}" data-title="{{ trans($pathPlugin.'::Lang.info') }}" data-value="{{ bc_config_global('BankTransfer_info') }}" data-original-title="" title="">{{bc_config_global('BankTransfer_info') }}</a></td>
                     </tr>
           
                   </td>

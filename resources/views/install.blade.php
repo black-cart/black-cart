@@ -4,227 +4,243 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" href="images/icon.png" type="image/png" sizes="16x16">
     <title>{{ $title }}</title>
-    <link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
-        <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.0/js/bootstrap.min.js"></script>
+
+    <link rel="icon" href="images/icon.png" type="image/png" sizes="16x16">
+    <link href="admin/black/fonts/Poppins-font.css" rel="stylesheet" />
+    <link href="admin/black/fonts/all.css" rel="stylesheet" />
+    <!-- Icons -->
+    <link href="admin/black/css/nucleo-icons.css" rel="stylesheet" />
+    <!-- CSS -->
+    <link href="admin/black/css/black-dashboard.css?v=2.0.1" rel="stylesheet" />
+    <link href="admin/black/css/theme.css" rel="stylesheet" />
         <style type="text/css">
-            #msg{
-                text-align: center;
-            }
-            .error,.failed{
-                color: #ff0000;
-                font-weight: normal;
-            }
-            .success,.passed{
+            .success,.passed::marker{
                 color: #418802;
             }
-            .passed,.failed{
-                text-align: right;
-                float: right;
-            }
-            .container{
-                font-size: 13px !important;
-            }
-            .info-install{
-                margin: 0 5px !important;
+            .has-danger:after, .has-success:after{
+                top:35px;
             }
         </style>
 </head>
 <body>
-<div class="container">
-    <div class="row" style=" margin-top:10px">
-        <div class="col-md-1"></div>
-    <div class="col-md-5 col-sm-8">
-        <div style="text-align: center;display: inline;line-height: 80px;">
-            <img alt="Logo-Scart" title="Logo-Scart" src="images/Scart-min.png" style="width: 150px; padding: 5px;">
-        </div>
 
-        <div class="btn-group">
-        <button type="button" class="btn btn-default dropdown-toggle usa" data-toggle="dropdown">
-            @if ($path_lang == '?lang=vi')
-            <img src="https://black-cart.org/data/language/flag_vn.png" style="height: 25px;">
-            @else
-            <img src="https://black-cart.org/data/language/flag_uk.png" style="height: 25px;">
-            @endif
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card card-user">
+                <div class="card-body">
+                    <p class="card-text">
+                    </p>
+                    <div class="author">
+                        <div class="block block-one"></div>
+                        <div class="block block-two"></div>
+                        <div class="block block-three"></div>
+                        <div class="block block-four"></div>
+                        <a href="javascript:void(0)">
+                            <img class="avatar" src="images/mylogo.png" alt="...">
+                            <h5 class="title">{{ config('black-cart.title') }}</h5>
+                        </a>
+                        <p class="description">
+                            <b>{{ trans('install.info.version') }}</b>: {{ config('black-cart.version') }}
+                        </p>
 
 
-        <span class="caret"></span>
-      </button>
-          <ul class="dropdown-menu" >
-              <li><a href="install.php"><img src="https://black-cart.org/data/language/flag_uk.png" style="height: 25px;"></a></li>
-              <li><a href="install.php?lang=vi"><img src="https://black-cart.org/data/language/flag_vn.png" style="height: 25px;"></a></li>
-          </ul>
-        </div>
-        <div style="clear: both;display: block;">
-            <p>
-                {{ trans('install.info.about') }}<br>
-                {!! trans('install.info.about_us') !!}<br>
-                {!! trans('install.info.document') !!}<br>
-            </p>
-            <p><b>{{ trans('install.info.version') }}</b>: {{ config('black-cart.version') }}</p>
-            <p>{!! trans('install.info.terms') !!}</p>
-        </div>
-
-@php
-    $checkRequire = 'pass';
-@endphp
-<b>{{ trans('install.check_extension') }}</b>:
-@if (count($requirements['ext']))
-    <ul>
-        @foreach ($requirements['ext'] as $label => $result)
-            @php
-                if($result) {
-                    $status = 'passed';
-                } else {
-                    $status = $checkRequire = 'failed';
-                }
-            @endphp
-                <li>{{ $label }}<span class='{{ $status }}'>{{ $result ? trans('install.check_ok') : trans('install.check_failed') }}</span></li>
-        @endforeach
-    </ul>
-@endif
-<b>{{ trans('install.check_writable') }}</b>:
-@if (count($requirements['writable']))
-    <ul>
-        @foreach ($requirements['writable'] as $label => $result)
-            @php
-                if($result) {
-                    $status = 'passed';
-                } else {
-                    $status = $checkRequire = 'failed';
-                }
-            @endphp
-                <li>{{ $label }}<span class='{{ $status }}'>{{ $result ? trans('install.check_ok') : trans('install.check_failed') }}</span></li>
-        @endforeach
-    </ul>
-@endif
-    </div>
-    <div id="signupbox"  class="mainbox col-md-5  col-sm-8">
-        <div class="panel panel-info">
-            <div class="panel-heading">
-                <h1>{{ $title }}</h1>
+                        <div class="dropdown">
+                            <button class="dropdown-toggle btn btn-primary btn-block" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true">
+                                @if ($path_lang == '?lang=vi')
+                                <img src="data/language/flag_vn.png" style="height: 25px;">
+                                @else
+                                <img src="data/language/flag_uk.png" style="height: 25px;">
+                                @endif
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" x-placement="bottom-start">
+                                <a class="dropdown-item" href="install.php"><img src="data/language/flag_uk.png" style="height: 25px;"> English</a>
+                                <a class="dropdown-item" href="install.php?lang=vi"><img src="data/language/flag_vn.png" style="height: 25px;"> Vietnamese</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-description">
+                    {{ trans('install.info.about') }}
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <div class="button-container">
+                        <button href="javascript:void(0)" class="btn btn-icon btn-round btn-facebook">
+                        <i class="fab fa-facebook"></i>
+                        </button>
+                        <button href="javascript:void(0)" class="btn btn-icon btn-round btn-twitter">
+                        <i class="fab fa-twitter"></i>
+                        </button>
+                        <button href="javascript:void(0)" class="btn btn-icon btn-round btn-google">
+                        <i class="fab fa-google-plus"></i>
+                        </button>
+                    </div>
+                </div>
             </div>
-            <div class="panel-body" >
-                    <form  class="form-horizontal" id="formInstall">
-                        <div id="div_database_host" class="form-group info-install required">
-                            <label for="database_host"  required class="control-label col-md-4  requiredField"> {{ trans('install.database_host') }} </label>
-                            <div class="controls col-md-8 ">
-                                <input class="input-md  textInput form-control" id="database_host"  name="database_host" placeholder="{{ trans('install.database_host') }}" style="margin-bottom: 10px" type="text" value="127.0.0.1" />
-                            </div>
+            <div class="card">
+                <div class="card-body">
+                    @php
+                        $checkRequire = 'pass';
+                    @endphp
+                    <h5>{{ trans('install.check_extension') }}</h5>
+                    @if (count($requirements['ext']))
+                        <ul class="check_ext">
+                            @foreach ($requirements['ext'] as $label => $result)
+                                @php
+                                    if($result) {
+                                        $status = 'passed';
+                                    } else {
+                                        $status = $checkRequire = 'failed';
+                                    }
+                                @endphp
+                                    <li class="{{ $status }}">{{ $label }}</li>
+                            @endforeach
+                        </ul>
+                    @endif
+                    <h5>{{ trans('install.check_writable') }}</h5>
+                    @if (count($requirements['writable']))
+                        <ul class="check_ext">
+                            @foreach ($requirements['writable'] as $label => $result)
+                                @php
+                                    if($result) {
+                                        $status = 'passed';
+                                    } else {
+                                        $status = $checkRequire = 'failed';
+                                    }
+                                @endphp
+                                    <li class="{{ $status }}">{{ $label }}</li>
+                            @endforeach
+                        </ul>
+                    @endif
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-8">
+            <form  class="form-horizontal" id="InstallValidation">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="title">{{ $title }}</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-group" id="div_database_host">
+                            <label for="database_host">{{ trans('install.database_host') }}</label>
+                            <input class="form-control" name="database_host" type="text" id="database_host" value="127.0.0.1" 
+                            placeholder="{{ trans('install.database_host') }}" required>
                         </div>
-                        <div id="div_database_port" class="form-group info-install required">
-                            <label for="database_port"  required class="control-label col-md-4  requiredField"> {{ trans('install.database_port') }} </label>
-                            <div class="controls col-md-8 ">
-                                <input class="input-md  textInput form-control" id="database_port"  name="database_port" placeholder="{{ trans('install.database_port') }}" style="margin-bottom: 10px" type="number" value="3306" />
-                            </div>
+
+                        <div class="form-group" id="div_database_port">
+                            <label for="database_port">{{ trans('install.database_port') }}</label>
+                            <input class="form-control" name="database_port" type="number" id="database_port" value="3306"
+                            placeholder="{{ trans('install.database_port') }}" required>
                         </div>
-                        <div id="div_database_name" class="form-group info-install required">
-                            <label for="database_name"  required class="control-label col-md-4  requiredField"> {{ trans('install.database_name') }} </label>
-                            <div class="controls col-md-8 ">
-                                <input class="input-md  textInput form-control" id="database_name"  name="database_name" placeholder="{{ trans('install.database_name') }}" style="margin-bottom: 10px" type="text" value="black-cart" />
-                            </div>
+
+                        <div class="form-group" id="div_database_name">
+                            <label for="database_name">{{ trans('install.database_name') }}</label>
+                            <input class="form-control" name="database_name" type="text" id="database_name"
+                            placeholder="{{ trans('install.database_name') }}" required>
                         </div>
-                        <div id="div_database_user" class="form-group info-install required">
-                            <label for="database_user"  required class="control-label col-md-4  requiredField"> {{ trans('install.database_user') }} </label>
-                            <div class="controls col-md-8 ">
-                                <input class="input-md  textInput form-control" id="database_user"  name="database_user" placeholder="{{ trans('install.database_user') }}" style="margin-bottom: 10px" type="text" value="root" />
-                            </div>
+
+                        <div class="form-group" id="div_database_user">
+                            <label for="database_user">{{ trans('install.database_user') }}</label>
+                            <input class="form-control" name="database_user" type="text" id="database_user" value="root" 
+                            placeholder="{{ trans('install.database_user') }}" required>
                         </div>
-                        <div id="div_database_password" class="form-group info-install required">
-                            <label for="database_password"  required class="control-label col-md-4  requiredField"> {{ trans('install.database_password') }} </label>
-                            <div class="controls col-md-8 ">
-                                <input class="input-md  textInput form-control" id="database_password"  name="database_password" placeholder="{{ trans('install.database_password') }}" style="margin-bottom: 10px" type="password" value="" />
-                            </div>
+
+                        <div class="form-group" id="div_database_password">
+                            <label for="database_password">{{ trans('install.database_password') }}</label>
+                            <input class="form-control" name="database_password" type="password" id="database_password" 
+                            placeholder="{{ trans('install.database_password') }}">
                         </div>
-                        <div id="div_database_prefix" class="form-group info-install">
-                            <label for="database_prefix"  class="control-label col-md-4 "> {{ trans('install.database_prefix') }} </label>
-                            <div class="controls col-md-8 ">
-                                <input class="input-md  textInput form-control" id="database_prefix"  name="database_prefix" placeholder="{{ trans('install.database_prefix_help') }}" style="margin-bottom: 10px" type="text"  value="sc_" />
-                            </div>
+
+                        <div class="form-group" id="div_database_prefix">
+                            <label for="database_prefix">{{ trans('install.database_prefix') }}</label>
+                            <input class="form-control" name="database_prefix" type="text" id="database_prefix" 
+                            placeholder="{{ trans('install.database_prefix_help') }}" required>
                         </div>
+
                         <hr>
-                        <div id="div_language_default" class="form-group info-install required">
-                            <label for="language_default"  required class="control-label col-md-4  requiredField"> {{ trans('install.language_default') }} </label>
-                            <div class="controls col-md-8">
-                                <select name="language_default" class="form-control" id="language_default">
-                                    @foreach (['vi' => 'VietNam', 'en' => 'English'] as $key => $value)
-                                        <option value="{{ $key }}">{{  $value }}</option>
-                                    @endforeach
-                                </select>
-                            </div>
+
+                        <div id="div_language_default" class="form-group">
+                            <label for="language_default"> {{ trans('install.language_default') }} </label>
+                            <select name="language_default" id="language_default" class="selectpicker" data-style="btn btn-primary" tabindex="-98">
+                                @foreach (['vi' => 'VietNam', 'en' => 'English'] as $key => $value)
+                                    <option value="{{ $key }}">{{  $value }}</option>
+                                @endforeach
+                            </select>
                         </div>
-                        <br>
-                        <div id="div_timezone_default" class="form-group info-install required">
-                            <label for="timezone_default"  required class="control-label col-md-4  requiredField"> {{ trans('install.timezone_default') }} </label>
-                            <div class="controls col-md-8">
-                                <select name="timezone_default" class="form-control" id="timezone_default">
+
+                        <div id="div_timezone_default" class="form-group">
+                            <label for="timezone_default"> {{ trans('install.timezone_default') }} </label>
+                            <select name="timezone_default" id="timezone_default" class="selectpicker" data-style="btn btn-primary" tabindex="-98">
                                 @foreach (timezone_identifiers_list() as $key => $value)
                                     <option value="{{ $value }}"  {{ $value == 'Asia/Ho_Chi_Minh'?'selected':'' }}>{{  $value }}</option>
                                 @endforeach
-                                </select>
-                                </div>
+                            </select>
                         </div>
+
                         <hr>
-                        <div id="div_admin_url" class="form-group info-install required">
-                            <label for="admin_url"  required class="control-label col-md-4  requiredField"> {{ trans('install.admin_url') }} </label>
-                            <div class="controls col-md-8">
-                                <input class="input-md  textInput form-control" id="admin_url"  name="admin_url" placeholder="{{ trans('install.admin_url') }}" style="margin-bottom: 10px" type="text" value="sc_admin" />
+
+                        <div id="div_admin_url" class="form-group">
+                            <label for="admin_url"> {{ trans('install.admin_url') }} </label>
+                            <input class="form-control" id="admin_url"  name="admin_url" placeholder="{{ trans('install.admin_url') }}" type="text" required/>
+                        </div>
+
+                        <div id="div_admin_user" class="form-group">
+                            <label for="admin_user"> {{ trans('install.admin_user') }} </label>
+                            <input class="form-control" id="admin_user" value="admin" name="admin_user" placeholder="{{ trans('install.admin_user') }}" type="text" required/>
+                        </div>
+
+                        <div id="div_admin_password" class="form-group">
+                            <label for="admin_password"> {{ trans('install.admin_password') }} </label>
+                            <input class="form-control" id="admin_password" name="admin_password" placeholder="{{ trans('install.admin_password') }}" type="password" required/>
+                        </div>
+                        
+                        <div id="div_admin_email" class="form-group">
+                            <label for="admin_email"> {{ trans('install.admin_email') }} </label>
+                            <input class="form-control" id="admin_email" name="admin_email" placeholder="{{ trans('install.admin_email') }}" type="email" required/>
+                        </div>
+                        
+                        <div class="form-check">
+                            <label class="form-check-label">
+                              <input class="form-check-input checkboxinput" type="checkbox" name="terms" id="id_terms" required/>
+                              <span class="form-check-sign"></span>
+                              {!! trans('install.terms') !!}
+                            </label>
+                        </div>
+
+                        <h4 id="msg" class="card-title mt-2"></h4>
+                        <div class="progress" style="display: none;">
+                            <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 0%;">
+                              <span class="progress-value">0%</span>
                             </div>
                         </div>
-                        <div id="div_admin_user" class="form-group info-install required">
-                            <label for="admin_user"  required class="control-label col-md-4  requiredField"> {{ trans('install.admin_user') }} </label>
-                            <div class="controls col-md-8">
-                                <input class="input-md  textInput form-control" id="admin_user"  name="admin_user" placeholder="{{ trans('install.admin_user') }}" style="margin-bottom: 10px" type="text" value="admin" />
-                            </div>
-                        </div>
-                        <div id="div_admin_password" class="form-group info-install required">
-                            <label for="admin_password"  required class="control-label col-md-4  requiredField"> {{ trans('install.admin_password') }} </label>
-                            <div class="controls col-md-8">
-                                <input class="input-md  textInput form-control" id="admin_password"  name="admin_password" placeholder="{{ trans('install.admin_password') }}" style="margin-bottom: 10px" type="password" value="admin" />
-                            </div>
-                        </div>
-                        <div id="div_admin_email" class="form-group info-install required">
-                            <label for="admin_email"  required class="control-label col-md-4  requiredField"> {{ trans('install.admin_email') }} </label>
-                            <div class="controls col-md-8">
-                                <input class="input-md  textInput form-control" id="admin_email"  name="admin_email" placeholder="{{ trans('install.admin_email') }}" style="margin-bottom: 10px" type="email" />
-                            </div>
-                        </div>
-                        <div class="form-group info-install required">
-                            <div class="controls col-md-offset-4 col-md-8 ">
-                                <input required class="input-md checkboxinput" id="id_terms" name="terms" style="margin-bottom: 10px" type="checkbox" />
-                                         {!! trans('install.terms') !!}
-                            </div>
-                        </div>
-                        <div id="msg" class="form-group info-install"></div>
-                        <div class="form-group">
-                            <div class="controls col-md-4 "></div>
-                            <div class="controls col-md-8 ">
-                                <input  type="button" {{ ($checkRequire == 'pass')?'':'disabled'}} data-loading-text="{{ trans('install.installing_button') }}"  value="{{ trans('install.installing') }}" class="btn btn-primary btn btn-info" id="submit-install" />
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="progress" style="display: none;">
-                                  <div class="progress-bar" role="progressbar" style="width: 0%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">0%</div>
-                                </div>
-                            </div>
-                        </div>
-                </form>
-            </div>
+                    </div>
+                    <div class="card-footer">
+                        <button type="button" {{ ($checkRequire == 'pass')?'':'disabled'}} 
+                                class="btn btn-fill btn-primary" 
+                                data-loading-text="{{ trans('install.installing_button') }}" 
+                                id="submit-install">
+                            {{ trans('install.installing') }}
+                        </button>
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
-
-    </div>
 </div>
 </div>
 
+<script src="admin/black/js/core/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.min.js"></script>
+<script src="admin/black/js/core/popper.min.js"></script>
+<script src="admin/black/js/core/bootstrap.min.js"></script>
+<script src="admin/black/js/plugins/bootstrap-selectpicker.js"></script>
 <script type="text/javascript">
 $('#submit-install').click(function(event) {
-    validateForm();
-    if($("#formInstall").valid()){
+    setFormValidation();
+    if($("#InstallValidation").valid()){
         $(this).button('loading');
         $('.progress').show();
             $.ajax({
@@ -517,77 +533,27 @@ function completeInstall() {
     })
 }
 
-function validateForm(){
-        $("#formInstall").validate({
-        rules: {
-            "database_host": {
-                required: true,
-            },
-            "database_port": {
-                required: true,
-                number:true,
-            },
-            "admin_url": {
-                required: true,
-            },
-            "database_name": {
-                required: true,
-            },
-            "database_user": {
-                required: true,
-            },
-            "admin_user": {
-                required: true,
-            },
-            "admin_password": {
-                required: true,
-            },
-            "admin_email": {
-                required: true,
-            },
-            "timezone_default": {
-                required: true,
-            },
-            "language_default": {
-                required: true,
-            },
-        },
-        messages: {
-            "database_host": {
-                required: "{{ trans('install.validate.database_host_required') }}",
-            },
-            "database_port": {
-                required: "{{ trans('install.validate.database_port_required') }}",
-                number: "{{ trans('install.validate.database_port_number') }}",
-            },
-            "admin_url": {
-                required: "{{ trans('install.validate.admin_url_required') }}",
-            },
-            "database_name": {
-                required: "{{ trans('install.validate.database_name_required') }}",
-            },
-            "database_user": {
-                required: "{{ trans('install.validate.database_user_required') }}",
-            },
-            "admin_user": {
-                required: "{{ trans('install.validate.admin_user_required') }}",
-            },
-            "admin_password": {
-                required: "{{ trans('install.validate.admin_password_required') }}",
-            },
-            "admin_email": {
-                required: "{{ trans('install.validate.admin_email_required') }}",
-            },
-            "timezone_default": {
-                required: "{{ trans('install.validate.timezone_default_required') }}",
-            },
-            "language_default": {
-                required: "{{ trans('install.validate.language_default_required') }}",
-            }
-            
-        }
-    }).valid();
+
+
+function setFormValidation(id) {
+  $(id).validate({
+    highlight: function(element) {
+      $(element).closest('.form-group').removeClass('has-success').addClass('has-danger');
+      $(element).closest('.form-check').removeClass('has-success').addClass('has-danger');
+    },
+    success: function(element) {
+      $(element).closest('.form-group').removeClass('has-danger').addClass('has-success');
+      $(element).closest('.form-check').removeClass('has-danger').addClass('has-success');
+    },
+    errorPlacement: function(error, element) {
+      $(element).closest('.form-group').append(error);
+    },
+  });
 }
+
+$(document).ready(function() {
+  setFormValidation('#InstallValidation');
+});
 
 </script>
 

@@ -18,6 +18,7 @@ return [
     'change_infomation'       => 'Change infomation',
     'update_infomation'       => 'Update infomation',
     'update_success'          => 'Update success!',
+    'update_failed'          => 'Update failed!',
     'password_old'            => 'Old password',
     'password_new'            => 'New password',
     'password'                => 'Password',

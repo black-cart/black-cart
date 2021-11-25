@@ -3,12 +3,12 @@
  * Route front
  */
 
-$suffix = sc_config('SUFFIX_URL')??'';
-$prefixCmsCategory = sc_config('PREFIX_CMS_CATEGORY')??'cms';
-$prefixCmsEntry = sc_config('PREFIX_CMS_ENTRY')??'entry';
+$suffix = bc_config('SUFFIX_URL')??'';
+$prefixCmsCategory = bc_config('PREFIX_CMS_CATEGORY')??'cms';
+$prefixCmsEntry = bc_config('PREFIX_CMS_ENTRY')??'entry';
 $langUrl = config('app.seoLang'); 
 
-if (sc_config('Content')) {
+if (bc_config('Content')) {
     Route::group(
         [
             'namespace' => 'App\Plugins\Cms\Content\Controllers',
@@ -28,8 +28,8 @@ if (sc_config('Content')) {
  */
 Route::group(
     [
-        'prefix' => SC_ADMIN_PREFIX,
-        'middleware' => SC_ADMIN_MIDDLEWARE,
+        'prefix' => BC_ADMIN_PREFIX,
+        'middleware' => BC_ADMIN_MIDDLEWARE,
         'namespace' => 'App\Plugins\Cms\Content\Admin',
     ], 
     function () {

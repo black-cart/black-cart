@@ -433,7 +433,7 @@
           id = this.$element.attr('id');
 
         this.$element.addClass('bs-select-hidden');
-
+        
         // store originalIndex (key) and newIndex (value) in this.liObj for fast accessibility
         // allows us to do this.$lis.eq(that.liObj[index]) instead of this.$lis.filter('[data-original-index="' + index + '"]')
         this.liObj = {};
@@ -451,6 +451,10 @@
         this.$element.removeClass('bs-select-hidden');
 
         if (this.options.dropdownAlignRight === true) this.$menu.addClass('dropdown-menu-right');
+
+        if (this.$element.attr('data-live-search') == true) {
+          this.options.liveSearch = true;
+        }
 
         if (typeof id !== 'undefined') {
           this.$button.attr('data-id', id);

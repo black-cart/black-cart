@@ -23,40 +23,16 @@ class CmsCategoryController extends RootAdminController
 
     public function index()
     {
+        $pathPlugin = $this->plugin->pathPlugin;
         $categoriesTitle =  AdminCmsCategory::getListTitleAdmin();
-
-        $data = [
-            'title' => trans($this->plugin->pathPlugin.'::Category.admin.list'),
-            'subTitle' => '',
-            'icon' => 'fa fa-indent',
-            'menuRight' => [],
-            'menuLeft' => [],
-            'topMenuRight' => [],
-            'topMenuLeft' => [],
-            'urlDeleteItem' => sc_route_admin('admin_cms_category.delete'),
-            'removeList' => 1, // 1 - Enable function delete list item
-            'buttonRefresh' => 1, // 1 - Enable button refresh
-            'buttonSort' => 1, // 1 - Enable button sort
-            'css' => '', 
-            'js' => '',
-        ];
-
-        $listTh = [
-            'id' => trans($this->plugin->pathPlugin.'::Category.id'),
-            'image' => trans($this->plugin->pathPlugin.'::Category.image'),
-            'title' => trans($this->plugin->pathPlugin.'::Category.title'),
-            'parent' => trans($this->plugin->pathPlugin.'::Category.parent'),
-            'status' => trans($this->plugin->pathPlugin.'::Category.status'),
-            'sort' => trans($this->plugin->pathPlugin.'::Category.sort'),
-            'action' => trans($this->plugin->pathPlugin.'::Category.admin.action'),
-        ];
-        $sort_order = sc_clean(request('sort_order') ?? 'id_desc');
-        $keyword    = sc_clean(request('keyword') ?? '');
+        
+        $sort_order = bc_clean(request('sort_order') ?? 'id_desc');
+        $keyword    = bc_clean(request('keyword') ?? '');
         $arrSort = [
-            'id__desc' => trans($this->plugin->pathPlugin.'::Category.admin.sort_order.id_desc'),
-            'id__asc' => trans($this->plugin->pathPlugin.'::Category.admin.sort_order.id_asc'),
-            'title__desc' => trans($this->plugin->pathPlugin.'::Category.admin.sort_order.title_desc'),
-            'title__asc' => trans($this->plugin->pathPlugin.'::Category.admin.sort_order.title_asc'),
+            'id__desc' => trans($pathPlugin.'::Category.admin.sort_order.id_desc'),
+            'id__asc' => trans($pathPlugin.'::Category.admin.sort_order.id_asc'),
+            'title__desc' => trans($pathPlugin.'::Category.admin.sort_order.title_desc'),
+            'title__asc' => trans($pathPlugin.'::Category.admin.sort_order.title_asc'),
         ];
 
         $dataSearch = [
@@ -64,62 +40,25 @@ class CmsCategoryController extends RootAdminController
             'sort_order' => $sort_order,
             'arrSort'    => $arrSort,
         ];
-        $dataTmp = (new AdminCmsCategory)->getCategoryListAdmin($dataSearch);
+        $dataCmsCate = (new AdminCmsCategory)->getCategoryListAdmin($dataSearch);
 
-        $dataTr = [];
-        foreach ($dataTmp as $key => $row) {
-            $dataTr[] = [
-                'id' => $row['id'],
-                'image' => sc_image_render($row->getThumb(), '50px', '50px',$row['title']),
-                'title' => $row['title'],
-                'parent' => $row['parent'] ? ($categoriesTitle[$row['parent']] ?? '') : 'ROOT',
+        $data = [
+            'title' => trans($this->plugin->pathPlugin.'::Category.admin.list'),
+            'urlDeleteItem' => bc_route_admin('admin_cms_category.delete'),
+            'removeList'    => 1, // 1 - Enable function delete list item
+            'buttonRefresh' => 1, // 1 - Enable button refresh
+            'buttonSort'    => 1, // 1 - Enable button sort
+            'urlSort'       => bc_route_admin('admin_cms_category.index', request()->except(['_token', '_pjax', 'sort_order'])),
+            'dataCmsCate'   => $dataCmsCate,
+            'resultItems'   => trans($pathPlugin.'::Category.admin.result_item', ['item_from' => $dataCmsCate->firstItem(), 'item_to' => $dataCmsCate->lastItem(), 'item_total' => $dataCmsCate->total()]),
+            'pagination'    => $dataCmsCate->appends(request()->except(['_token', '_pjax']))->links($this->templatePathAdmin.'component.pagination'),
+            'keyword'       => $keyword,
+            'arrSort'       => $arrSort,
+            'sort_order'    => $sort_order,
+            'pathPlugin'    => $pathPlugin,
+        ];
 
-                'status' => $row['status'] ? '<span class="badge badge-success">ON</span>' : '<span class="badge badge-danger">OFF</span>',
-                'sort' => $row['sort'],
-                'action' => '
-                    <a href="' . sc_route_admin('admin_cms_category.edit', ['id' => $row['id']]) . '"><span title="' . trans($this->plugin->pathPlugin.'::Category.admin.edit') . '" type="button" class="btn btn-flat btn-primary"><i class="fa fa-edit"></i></span></a>&nbsp;
-
-                    <span onclick="deleteItem(' . $row['id'] . ');"  title="' . trans('admin.delete') . '" class="btn btn-flat btn-danger"><i class="fa fa-trash"></i></span>'
-                ,
-            ];
-        }
-
-        $data['listTh'] = $listTh;
-        $data['dataTr'] = $dataTr;
-        $data['pagination'] = $dataTmp->appends(request()->except(['_token', '_pjax']))->links($this->templatePathAdmin.'component.pagination');
-        $data['resultItems'] = trans($this->plugin->pathPlugin.'::Category.admin.result_item', ['item_from' => $dataTmp->firstItem(), 'item_to' => $dataTmp->lastItem(), 'item_total' => $dataTmp->total()]);
-
-
-        //menuRight
-        $data['menuRight'][] = '<a href="' . sc_route_admin('admin_cms_category.create') . '" class="btn  btn-success  btn-flat" title="New" id="button_create_new">
-                           <i class="fa fa-plus"></i><span class="hidden-xs">' . trans('admin.add_new') . '</span>
-                           </a>';
-        //=menuRight
-
-        //menuSort
-        $optionSort = '';
-        foreach ($arrSort as $key => $status) {
-            $optionSort .= '<option  ' . (($sort_order == $key) ? "selected" : "") . ' value="' . $key . '">' . $status . '</option>';
-        }
-        $data['urlSort'] = sc_route_admin('admin_cms_category.index', request()->except(['_token', '_pjax', 'sort_order']));
-
-        $data['optionSort'] = $optionSort;
-        //=menuSort
-
-        //menuSearch
-        $data['topMenuRight'][] = '
-                <form action="' . sc_route_admin('admin_cms_category.index') . '" id="button_search">
-                <div class="input-group input-group" style="width: 250px;">
-                    <input type="text" name="keyword" class="form-control float-right" placeholder="' . trans($this->plugin->pathPlugin.'::Category.admin.search_place') . '" value="' . $keyword . '">
-                    <div class="input-group-append">
-                        <button type="submit" class="btn btn-primary"><i class="fas fa-search"></i></button>
-                    </div>
-                </div>
-                </form>';
-        //=menuSearch
-
-
-        return view($this->templatePathAdmin.'screen.list')
+        return view($this->plugin->pathPlugin.'::Admin.Category.list')
             ->with($data);
     }
 
@@ -131,15 +70,13 @@ class CmsCategoryController extends RootAdminController
     {
         $data = [
             'title' => trans($this->plugin->pathPlugin.'::Category.admin.add_new_title'),
-            'subTitle' => '',
             'title_description' => trans($this->plugin->pathPlugin.'::Category.admin.add_new_des'),
-            'icon' => 'fa fa-plus',
             'languages' => $this->languages,
             'category' => [],
             'categories' => (new AdminCmsCategory)->getTreeCategoriesAdmin(),
-            'url_action' => sc_route_admin('admin_cms_category.create'),
+            'url_action' => bc_route_admin('admin_cms_category.create'),
         ];
-        return view($this->plugin->pathPlugin.'::Admin.cms_category')
+        return view($this->plugin->pathPlugin.'::Admin.Category.add_edit')
             ->with($data);
     }
 
@@ -151,10 +88,10 @@ class CmsCategoryController extends RootAdminController
     {
         $data = request()->all();
 
-        $langFirst = array_key_first(sc_language_all()->toArray()); //get first code language active
+        $langFirst = array_key_first(bc_language_all()->toArray()); //get first code language active
         $data['alias'] = !empty($data['alias'])?$data['alias']:$data['descriptions'][$langFirst]['title'];
-        $data['alias'] = sc_word_format_url($data['alias']);
-        $data['alias'] = sc_word_limit($data['alias'], 100);
+        $data['alias'] = bc_word_format_url($data['alias']);
+        $data['alias'] = bc_word_limit($data['alias'], 100);
 
         $validator = Validator::make($data, [
             'sort' => 'numeric|min:0',
@@ -198,7 +135,7 @@ class CmsCategoryController extends RootAdminController
         }
         AdminCmsCategory::insertDescriptionAdmin($dataDes);
 
-        sc_clear_cache('cache_cms_category');
+        bc_clear_cache('cache_cms_category');
 
         return redirect()->route('admin_cms_category.index')->with('success', trans($this->plugin->pathPlugin.'::Category.admin.create_success'));
 
@@ -217,15 +154,13 @@ class CmsCategoryController extends RootAdminController
 
         $data = [
             'title'             => trans($this->plugin->pathPlugin.'::Category.admin.edit'),
-            'subTitle'          => '',
-            'title_description' => '',
-            'icon'              => 'fa fa-pencil-square-o',
             'languages'         => $this->languages,
+            'title_description' => trans($this->plugin->pathPlugin.'::Category.admin.edit'),
             'category'          => $category,
             'categories'        => (new AdminCmsCategory)->getTreeCategoriesAdmin(),
-            'url_action'        => sc_route_admin('admin_cms_category.edit', ['id' => $category['id']]),
+            'url_action'        => bc_route_admin('admin_cms_category.edit', ['id' => $category['id']]),
         ];
-        return view($this->plugin->pathPlugin.'::Admin.cms_category')
+        return view($this->plugin->pathPlugin.'::Admin.Category.add_edit')
             ->with($data);
     }
 
@@ -241,10 +176,10 @@ class CmsCategoryController extends RootAdminController
 
         $data = request()->all();
 
-        $langFirst = array_key_first(sc_language_all()->toArray()); //get first code language active
+        $langFirst = array_key_first(bc_language_all()->toArray()); //get first code language active
         $data['alias'] = !empty($data['alias'])?$data['alias']:$data['descriptions'][$langFirst]['title'];
-        $data['alias'] = sc_word_format_url($data['alias']);
-        $data['alias'] = sc_word_limit($data['alias'], 100);
+        $data['alias'] = bc_word_format_url($data['alias']);
+        $data['alias'] = bc_word_limit($data['alias'], 100);
 
         $validator = Validator::make($data, [
             'sort'                       => 'numeric|min:0',
@@ -289,7 +224,7 @@ class CmsCategoryController extends RootAdminController
 
         AdminCmsCategory::insertDescriptionAdmin($dataDes);
 
-        sc_clear_cache('cache_cms_category');
+        bc_clear_cache('cache_cms_category');
 
         return redirect()->route('admin_cms_category.index')->with('success', trans($this->plugin->pathPlugin.'::Category.admin.edit_success'));
 
@@ -316,7 +251,7 @@ class CmsCategoryController extends RootAdminController
                 return response()->json(['error' => 1, 'msg' => trans('admin.remove_dont_permisison') . ': ' . json_encode($arrDontPermission)]);
             }
             AdminCmsCategory::destroy($arrID);
-            sc_clear_cache('cache_cms_category');
+            bc_clear_cache('cache_cms_category');
             return response()->json(['error' => 0, 'msg' => '']);
         }
     }

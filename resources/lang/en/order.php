@@ -62,9 +62,8 @@ return [
     'amount'                => 'Amount',
     'search'                => 'Search order',
     'success'               => [
-        'title' =>'Order success',
-        'msg' => 'Thank you for your purchase!',
-        'order_info' => 'Your order: #:order_id',
+        'title' => 'Your order: #:order_id has been ordered successful',
+        'msg' => 'Thank you for your purchase <br>We will contact you later !',
     ],
     'send_mail'             => [
         'title'     => 'Email',

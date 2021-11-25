@@ -22,6 +22,7 @@ return [
         'delete'         => 'Xóa',
         'edit'           => 'Chỉnh sửa',
         'add_new'        => 'Thêm mới',
+        'add_new_type'   => 'Thêm loại mới',
         'export'         => 'Xuất',
         'refresh'        => 'Làm mới',
         'result_item'    => 'Hiển thị <b>:item_from</b> tới <b>:item_to</b> trong số <b>:item_total</b> kết quả</b>',

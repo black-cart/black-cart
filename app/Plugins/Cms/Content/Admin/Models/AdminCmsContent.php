@@ -40,7 +40,7 @@ class AdminCmsContent extends CmsContent
         $contentList = (new CmsContent)
             ->leftJoin($tableDescription, $tableDescription . '.content_id', $tableContent . '.id')
             ->where('store_id', session('adminStoreId'))
-            ->where($tableDescription . '.lang', sc_get_locale());
+            ->where($tableDescription . '.lang', bc_get_locale());
 
         if ($keyword) {
             $contentList = $contentList->where(function ($sql) use($tableDescription, $keyword){
@@ -99,22 +99,22 @@ class AdminCmsContent extends CmsContent
     {
         $tableDescription = (new CmsContentDescription)->getTable();
         $table = (new AdminCmsContent)->getTable();
-        if (sc_config_global('cache_status') && sc_config_global('cache_content')) {
-            if (!Cache::has(session('adminStoreId').'_cache_content_'.sc_get_locale())) {
+        if (bc_config_global('cache_status') && bc_config_global('cache_content')) {
+            if (!Cache::has(session('adminStoreId').'_cache_content_'.bc_get_locale())) {
                 if (self::$getListTitleAdmin === null) {
                     self::$getListTitleAdmin = self::join($tableDescription, $tableDescription.'.content_id', $table.'.id')
-                    ->where('lang', sc_get_locale())
+                    ->where('lang', bc_get_locale())
                     ->where('store_id', session('adminStoreId'))
                     ->pluck('title', 'id')
                     ->toArray();
                 }
-                sc_set_cache(session('adminStoreId').'_cache_content_'.sc_get_locale(), self::$getListTitleAdmin);
+                bc_set_cache(session('adminStoreId').'_cache_content_'.bc_get_locale(), self::$getListTitleAdmin);
             }
-            return Cache::get(session('adminStoreId').'_cache_content_'.sc_get_locale());
+            return Cache::get(session('adminStoreId').'_cache_content_'.bc_get_locale());
         } else {
             if (self::$getListTitleAdmin === null) {
                 self::$getListTitleAdmin = self::join($tableDescription, $tableDescription.'.content_id', $table.'.id')
-                ->where('lang', sc_get_locale())
+                ->where('lang', bc_get_locale())
                 ->where('store_id', session('adminStoreId'))
                 ->pluck('title', 'id')
                 ->toArray();

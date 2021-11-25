@@ -119,7 +119,7 @@ class AppConfig extends ConfigDefault
 
     public function config()
     {
-        $breadcrumb['url'] = sc_route_admin('admin_plugin', ['code' => $this->configCode]);
+        $breadcrumb['url'] = bc_route_admin('admin_plugin', ['code' => $this->configCode]);
         $breadcrumb['name'] = trans('plugin.' . $this->configCode.'_plugin');
         return view($this->pathPlugin . '::Admin')->with(
             [
@@ -175,7 +175,7 @@ class AppConfig extends ConfigDefault
             'https://www.google.com/recaptcha/api/siteverify',
             ['form_params'=>
                 [
-                    'secret'   => sc_config($this->configKey.'_secrect_key'),
+                    'secret'   => bc_config($this->configKey.'_secrect_key'),
                     'response' => $value
                  ]
             ]
